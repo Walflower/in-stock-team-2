@@ -98,3 +98,35 @@
 @mixin cta__delete--hover {
     background-color: c.$background--graphite;
 }
+
+// Text CTA Links
+
+@mixin cta__link--DT {
+    font-size: f.$size__h3--DT;
+    color: c.$primary--indigo;
+    font-weight: f.$demi;
+    line-height: f.$lheight__h3--DT;
+    text-decoration: none;
+    background-image: url("../../assets/icons/chevron_right-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: s.$pad__link--icon;
+    background-size: s.$size__icon;
+}
+
+@mixin cta__link--M {
+    font-size: 0.845rem;
+    color: c.$primary--indigo;
+    font-weight: f.$demi;
+    line-height: f.$lheight__h3--M;
+    text-decoration: none;
+    background-image: url("../../assets/icons/chevron_right-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: s.$pad__link--icon;
+    background-size: s.$size__icon;
+}
+
+@mixin cta__link--hover {
+    text-decoration: underline;
+}

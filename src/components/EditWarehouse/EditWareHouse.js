@@ -1,4 +1,4 @@
-import ".EditWarehouse/.scss"
+import './EditWarehouse.scss'
 
 export function EditWarehouse() {
     return (

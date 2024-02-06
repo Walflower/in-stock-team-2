@@ -1,5 +1,5 @@
 import "./TablesInventory.scss";
-import searchIcon from "../../assets/icons/search-24px";
+import searchIcon from "../../assets/icons/search-24px.svg";
 // import { useEffect, useState } from "react";
 // import axios from "axios";
 // import { useParams } from "react-router";

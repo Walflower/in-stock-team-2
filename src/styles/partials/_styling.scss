@@ -1,0 +1,43 @@
+
+//CTA Styles Desktop/Tablet
+$pad__cta--DT: 1.5rem; //right and left padding for CTA buttons on Desktop/Mobile
+$height__cta--DT: 2.375rem; //height for CTA buttons on Desktop/Mobile
+$width__cta--DT: auto; //width for CTA buttons on Desktop
+
+//CTA Styles Mobile
+$height__cta--M: 2.25rem; //height for CTA buttons on Mobile
+$width__cta--M: 100%;
+
+//CTA Styles All
+$radius__cta: 1.25rem; //border radius for CTA buttons
+$space__cta: 0.25rem; //space between CTA text and CTA icon
+
+//Form Fields Desktop/Tablet
+$height__field--DT: 2.375rem; //height for form fields on Desktop/Mobile
+
+//Form Fields Mobile
+$height__field--M: 2.25rem; //height for form fields on Mobile
+$width__field--M: 100%; //width for form fields on Mobile
+
+//Form Fields All
+$radius__field: 1.25rem; //border radius for form fields
+$pad__field: 1rem; //padding for form fields left and right
+$gap__field: 0.25rem; //gap between form field and label
+
+//Radio Buttons
+$space__radio--label: 0.25rem; //space between radio button group and label
+$space__radio--text: 0.5rem; //space between radio button and text
+
+//Tags Desktop/Tablet
+$height__tag--DT: 1.625rem; //height for tags on Desktop/Tablet
+
+//Tags Mobile
+$height__tag--M: 1.5rem; //height for tags on Mobile
+
+//Tags All
+$radius__tag: 1.25rem; //border radius for tags
+$width__tag: auto; //width for tags
+$pad__tag: 0.5rem; //padding for tags
+
+//Standard Border Radius
+$radius: 1.25rem; //

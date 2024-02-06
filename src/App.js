@@ -1,9 +1,9 @@
-import './App.scss';
+import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Warehouses } from './components/Warehouses/Warehouses';
 import { WarehouseDetails } from './components/WarehouseDetails/WarehouseDetails';
 import { AddNewWarehouse } from './components/AddNewWarehouse/AddNewWarehouse';
-import { EditWarehouse } from './components/EditWarehouse/EditWarehouse'
+import {EditWarehouse} from './components/EditWarehouse/EditWareHouse';
 import { Inventory } from './components/Inventory/Inventory';
 import { EditInventory } from './components/EditInventory/EditInventory';
 import { NotFound } from './pages/NotFound';

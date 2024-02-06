@@ -3,6 +3,12 @@
 @use "font-styles" as f;
 @use "styling" as s;
 
-@mixin tag--oos {
-	background-color: c.$tag__stock--out;
+// CTA Buttons
+
+@mixin cta__primary--DT {
+    width: s.$width__cta--DT;
+    height: s.$height__cta--DT;
+    padding: 0 s.$pad__cta--DT;
+    border-radius: s.$radius__cta;
+    font-size: f.$size__p3--DT;
 }

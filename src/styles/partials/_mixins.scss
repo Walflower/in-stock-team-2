@@ -2,3 +2,7 @@
 @use "padding" as p;
 @use "font-styles" as f;
 @use "styling" as s;
+
+@mixin tag--oos {
+	background-color: c.$tag__stock--out;
+}

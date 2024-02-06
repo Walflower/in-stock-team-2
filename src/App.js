@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+
+import TablesInventory from './components/TablesInventory/TablesInventory';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-     
+     <TablesInventory/>
     </div>
   );
 }

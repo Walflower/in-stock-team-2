@@ -15,14 +15,14 @@ function App() {
       {/* <NavBar /> */}
       <Routes>
         <Route path='/' element={< Warehouses/>}/>
-        <Route path='/delete warehouse' element={<Warehouses/>}/>
-        <Route path='/warehouse details' element={<WarehouseDetails/>}/>
-        <Route path='/edit warehouse' element={<EditWarehouse/>}/>
-        <Route path='/add new warehouse' element={<AddNewWarehouse/>}/>
+        <Route path='/delete-warehouse' element={<Warehouses/>}/>
+        <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
+        <Route path='/edit-warehouse' element={<EditWarehouse/>}/>
+        <Route path='/add-new-warehouse' element={<AddNewWarehouse/>}/>
         <Route path='/inventory' element={<Inventory/>}/>
-        <Route path='/delete item' element={<Inventory/>}/>
-        <Route path='/edit item' element={<EditInventory/>}/>
-        <Route path='/add new inventory' element={<AddNewInventory/>}/>
+        <Route path='/delete-item' element={<Inventory/>}/>
+        <Route path='/edit-item' element={<EditInventory/>}/>
+        <Route path='/add-new-inventory' element={<AddNewInventory/>}/>
 
         <Route path='*' element={<NotFound/>}/>
       </Routes>

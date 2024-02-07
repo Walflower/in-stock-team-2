@@ -1,6 +1,8 @@
 // home page, houseing the warehouse list
 import "./Warehouses.scss";
 
+import Testing from "../../styles/Testing/Testing.jsx";
+
 export function Warehouses() {
   return (
     <main className="main">
@@ -14,6 +16,9 @@ export function Warehouses() {
         <section className="main__box">section</section>
         <section className="main__box">section</section>
         <section className="main__box">section</section>
+
+        <Testing />
+
       </div>
     </main>
   );

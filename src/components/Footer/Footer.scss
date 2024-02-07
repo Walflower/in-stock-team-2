@@ -1,0 +1,11 @@
+@use "../../styles/partials/index" as *;
+
+.footer {
+  position: relative;
+  background-color: $background--lightgrey;
+
+  &__copyright {
+    padding-bottom: $pad--48;
+    color: $secondary--slate;
+  }
+}

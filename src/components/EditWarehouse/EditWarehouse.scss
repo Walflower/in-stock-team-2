@@ -1,2 +1,92 @@
 @use '../../styles/partials/index' as *;
 
+// mobile first view
+
+input {
+    font-size: $size__h3--M;
+    font-size: $lheight__h3--M;
+    border-radius: 1rem;
+    height: 2rem;
+    width: 100%;
+
+    &::placeholder {
+        padding: 1rem;
+        color: $secondary--slate;
+    }
+
+        @include tablet {
+
+        }
+
+        @include desktop {
+
+        }
+}
+
+.divider {
+    border-bottom-style: solid;
+    border-bottom-width: 0.15rem;
+    margin: 1rem 0;
+    border-bottom-color: $secondary--cloud;
+}
+
+.edit__warehouse {
+    // Styles for h2 with class edit__warehouse
+    font-size: $size__h1--M;
+  }
+  
+  .details {
+    // Styles for section with class details
+  
+    &__form {
+      // Styles for form with class details__form
+
+      &__container {
+        display: flex;
+      }
+  
+        &__label {
+          // Styles for labels inside divs
+          color: $primary--black;
+          font-size: $size__h3--M;
+          font-size: $lheight__h3--M;
+          font-weight: 600;
+
+        }
+  
+        &__input {
+          // Styles for inputs inside divs
+        }
+
+        @include tablet {
+            font-size: $size__h3--DT;
+            font-size: $lheight__h3--DT;
+        }
+
+        @include desktop {
+
+        }
+      }
+  
+      .button {
+        // Styles for div with class button
+  
+        &__save {
+          // Styles for button with class button__save
+        }
+  
+        &__cancel {
+          // Styles for button with class button__cancel
+        }
+
+            @include tablet {
+
+            }
+
+            @include desktop {
+                
+            }
+      }
+    }
+
+  

@@ -17,6 +17,8 @@ export function LineItem() {
                     <p className='out--stock'>{}</p>
                 <h2 className='subheader'>WAREHOUSE</h2>
                     <p className='in--stock'>{}</p>
+                <h2 className='subheader'>WAREHOUSE</h2>
+
             </section>
 
          </>

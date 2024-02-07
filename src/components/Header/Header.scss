@@ -16,7 +16,6 @@
     align-items: center;
 
     @include tablet {
-      // height: 50%;
       display: flex;
       justify-content: space-between;
       flex-direction: row;

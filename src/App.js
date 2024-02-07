@@ -7,6 +7,7 @@ import { Header } from "./components/Header/Header.js";
 import { Footer } from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
 import { Inventories } from "./pages/Inventories/Inventories";
+import { EditWarehouse } from "./components/EditWarehouse/EditWareHouse.js";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Warehouses />} />
         <Route path="/:warehouseId" element={<Warehouses />} />
-        <Route path="/:warehouseId/edit" element={<Warehouses />} />
+        {/* <Route path="/:warehouseId/edit" element={<EditWarehouse />} /> */}
         <Route path="/:warehouseId/delete" element={<Warehouses />} />
         <Route path="/warehouse-add" element={<Warehouses />} />
         <Route path="/delete-warehouse" element={<Warehouses />} />

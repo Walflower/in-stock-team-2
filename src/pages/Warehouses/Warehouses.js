@@ -6,7 +6,7 @@ export function Warehouses() {
     <main className="main">
       <div className="main__container">
         <section>
-          <h1>Warehouses</h1>
+          <h1>{Warehouses}</h1>
           <input></input>
           <button></button>
         </section>

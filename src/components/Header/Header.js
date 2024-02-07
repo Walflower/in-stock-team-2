@@ -1,7 +1,7 @@
 import "./Header.scss";
 import logo from "../../assets/logo/InStock-Logo.svg";
 
-function Header() {
+export function Header() {
   //TODO: buttons are not linked to pages
   return (
     <header className="header">
@@ -15,5 +15,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

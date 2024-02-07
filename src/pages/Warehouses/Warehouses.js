@@ -1,6 +1,7 @@
-import "./Main.scss";
+// home page, houseing the warehouse list
+import "./Warehouses.scss";
 
-function Main() {
+export function Warehouses() {
   return (
     <main className="main">
       <div className="main__container">
@@ -17,5 +18,3 @@ function Main() {
     </main>
   );
 }
-
-export default Main;

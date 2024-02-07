@@ -19,7 +19,7 @@ function App() {
         <Route path='/' element={< Warehouses/>}/>
         <Route path='/delete-warehouse' element={<Warehouses/>}/>
         <Route path='/warehouse-details' element={<WarehouseDetails/>}/>
-        <Route path='/warehouse-details' element={<WarehouseInventory/>}/>
+        <Route path='/warehouse-inventory' element={<WarehouseInventory/>}/>
         <Route path='/edit-warehouse' element={<EditWarehouse/>}/>
         <Route path='/add-new-warehouse' element={<AddNewWarehouse/>}/>
 

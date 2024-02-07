@@ -1,5 +1,12 @@
 @use "../../styles/partials/index" as *;
 
+//don't know if this works 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .main {
   background-color: $background--lightgrey;
   height: 90vh;
@@ -11,7 +18,7 @@
   &__container {
     // width: 100%;
     position: absolute;
-    top: 8rem;
+    top: 6rem;
     z-index: 7;
     right: $pad--16;
     left: $pad--16;
@@ -21,7 +28,7 @@
     //TODO container does align in the center at desktop
     @include tablet {
       width: 100%;
-      top: 6rem;
+      top: 5rem;
       // right: unset;
       // left: unset;
       margin: 0 $pad--16;

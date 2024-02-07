@@ -1,0 +1,23 @@
+@use "../../styles/partials/index" as *;
+
+.main {
+  background-color: $background--lightgrey;
+  height: 90vh;
+
+  // display: flex;
+  // justify-content: center;
+
+  &__container {
+    position: absolute;
+    top: 8rem;
+    z-index: 7;
+    right: $pad--16;
+    left: $pad--16;
+    background-color: $primary--white;
+    height: 90vh;
+
+    @include desktop {
+      max-width: 1020px;
+    }
+  }
+}

@@ -4,10 +4,12 @@
   background-color: $background--lightgrey;
   height: 90vh;
 
-  // display: flex;
-  // justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
   &__container {
+    // width: 100%;
     position: absolute;
     top: 8rem;
     z-index: 7;
@@ -16,8 +18,18 @@
     background-color: $primary--white;
     height: 90vh;
 
+    @include tablet {
+      width: 100%;
+      top: 6rem;
+      // right: unset;
+      // left: unset;
+      margin: 0 $pad--16;
+    }
     @include desktop {
-      max-width: 1020px;
+      width: 100%;
+      right: unset;
+      left: unset;
+      max-width: 1042px;
     }
   }
 }

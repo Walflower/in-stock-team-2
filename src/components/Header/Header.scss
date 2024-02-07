@@ -44,9 +44,11 @@
   &__button {
     @include cta__primary--DT;
     background-color: $background--graphite;
+    color: $secondary--cloud;
 
     &:hover {
       background-color: $primary--black;
+      color: $background--lightgrey;
     }
   }
 }

@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       {/* <Testing /> */}
       <Header />
-      <section className="section">
-        <Main />
-      </section>
+
+      <Main />
+
       <Footer />
     </div>
   );

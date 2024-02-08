@@ -76,8 +76,8 @@ export function EditWarehouse() {
                     </article>
                     
                         <div className='button'>
-                                <button className='button__save'></button>
-                                <button className='button__cancel'></button>
+                                <button className='button__save'>Save</button>
+                                <button className='button__cancel'>Cancel</button>
                         </div>
 
                 </form>

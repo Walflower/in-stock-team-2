@@ -349,9 +349,7 @@
 			color: c.$primary--black;
 		}
 	}
-	&:invalid {
-		@include field__error;
-	}
+	
 }
 
 @mixin search__input--DT {
@@ -381,9 +379,7 @@
 			color: c.$primary--black;
 		}
 	}
-	&:invalid {
-		@include field__error;
-	}
+	
 }
 
 //Psuedo Elements

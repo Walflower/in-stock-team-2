@@ -1,6 +1,6 @@
 @use "../../styles/partials/index" as *;
 
-//don't know if this works 
+//don't know if this works
 *,
 *::before,
 *::after {
@@ -18,23 +18,26 @@
   &__container {
     // width: 100%;
     position: absolute;
-    top: 6rem;
+    top: 5.5rem;
     z-index: 7;
     right: $pad--16;
     left: $pad--16;
-    background-color: $primary--white;
+    // background-color: $primary--white;
+    background-color: lightpink;
     height: 90vh;
 
     //TODO container does align in the center at desktop
     @include tablet {
       width: 100%;
-      top: 5rem;
+      top: 5.5rem;
+      background-color: lightpink;
       // right: unset;
       // left: unset;
-      margin: 0 $pad--16;
+      //   margin: 0 $pad--16;
     }
     @include desktop {
       width: 100%;
+      top: 5.5rem;
       right: unset;
       left: unset;
       max-width: 1042px;

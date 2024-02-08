@@ -2,7 +2,7 @@
 
 .header {
   background-color: $background--graphite;
-  height: 20vh;
+  height: 15vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -38,6 +38,15 @@
   &__box {
     display: flex;
     justify-content: space-between;
+    margin-top: $pad--16;
+
+    @include tablet {
+      margin-bottom: unset;
+    }
+
+    @include desktop {
+      margin-top: unset;
+    }
   }
 
   &__logo {
@@ -54,8 +63,11 @@
     color: $secondary--cloud;
 
     &:hover {
-      background-color: $primary--black;
-      color: $background--lightgrey;
+      // background-color: $primary--black;
+      color: $primary--white;
     }
   }
 }
+
+// link style: border-bottom: $primary--white solid 1px;
+//add active tag to my page button.

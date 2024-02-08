@@ -238,6 +238,12 @@
 
 //Dropdown Select
 
+//Select doesn't take placeholder text as an input
+//To create a placeholder of Please Select, use the following:
+// <option value="" disabled selected hidden>Please Select</option>
+// before you set your options for the warehouses, this will set the inital as Please Select
+// and the hidden hides it from the dropdown options so it acts as placeholder text
+
 @mixin drop__select--M {
 	height: s.$height__field--M;
 	padding: 0 s.$pad__field;
@@ -263,6 +269,7 @@
 	&:focus,
 	&:active {
 		@include field__active;
+		background-image: url("../../assets/icons/arrow_drop_down-24px-indigo.svg");
 
 		&::placeholder {
 			color: c.$primary--black;

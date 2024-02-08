@@ -17,7 +17,7 @@ export function Warehouses() {
         <section className="main__box">section</section>
         <section className="main__box">section</section>
 
-        <Testing />
+        
 
       </div>
     </main>

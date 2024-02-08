@@ -78,6 +78,13 @@ export default function Testing() {
 					</label>
 				</div>
 			</form>
+			<button  className="tag__oos--m">OUT OF STOCK</button>
+			<br />
+			<button className="tag__is--m">IN STOCK</button>
+			<br />
+			<button className="tag__oos--dt">OUT OF STOCK</button>
+			<br />
+			<button  className="tag__is--dt">IN STOCK</button>
 		</div>
 	);
 }

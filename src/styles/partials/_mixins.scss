@@ -434,7 +434,7 @@
 //Radio Lables
 //<label className="radio__label--dt">
 //<input type="radio" className="radio__btn" name="status" />
-//In stock
+//<span>In stock </span>
 //</label>
 
 @mixin radio__label--M {
@@ -456,13 +456,67 @@
 	display: hidden;
 	margin-right: 0.5rem;
 
-	&:checked{
+	&:checked {
 		border-color: c.$primary--indigo;
 	}
 
 	&:checked + span {
 		color: c.$primary--black;
 	}
+}
+
+//Tags
+
+@mixin tag__out--M {
+	font-size: f.$size__h3--M;
+	line-height: f.$lheight__h3--M;
+	color: c.$support--red;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(201, 69, 21, 0.07);
+	height: s.$height__tag--M;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+@mixin tag__out--DT {
+	font-size: f.$size__h3--DT;
+	line-height: f.$lheight__h3--DT;
+	color: c.$support--red;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(201, 69, 21, 0.07);
+	height: s.$height__tag--DT;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+@mixin tag__in--M {
+	font-size: f.$size__h3--M;
+	line-height: f.$lheight__h3--M;
+	color: c.$support--green;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(21, 132, 99, 0.07);
+	height: s.$height__tag--M;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+@mixin tag__in--DT {
+	font-size: f.$size__h3--DT;
+	line-height: f.$lheight__h3--DT;
+	color: c.$support--green;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(21, 132, 99, 0.07);
+	height: s.$height__tag--DT;
+	width: auto;
+	padding: 0 s.$pad__tag;
 }
 
 //Psuedo Elements

@@ -133,3 +133,23 @@
 		}
 	}
 }
+
+.tag__oos--m {
+
+    @include tag__out--M;
+
+}
+
+.tag__is--m {
+
+    @include tag__in--M;
+}
+
+.tag__oos--dt {
+    @include tag__out--DT;
+}
+
+.tag__is--dt {
+
+    @include tag__in--DT;
+}

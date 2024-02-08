@@ -4,11 +4,8 @@ import "./Inventories.scss";
 export function Inventories() {
   return (
     <>
-      <main className="main">
-        <div className="main__container">
-          <h1>Inventory List</h1>
-        </div>
-      </main>
+      <h1>Inventory List</h1>
+      <p>list of the the inventory items</p>
     </>
   );
 }

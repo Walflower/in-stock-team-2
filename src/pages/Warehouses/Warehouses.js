@@ -1,12 +1,13 @@
 // home page, houseing the warehouse list
 import "./Warehouses.scss";
+import React from "react";
 
 export function Warehouses() {
   return (
-    <main className="main">
-      <div className="main__container">
-        <h1>Warehouses</h1>
-      </div>
-    </main>
+    <>
+      <h1>warehouses</h1>
+      <button>add new warehouse</button>
+      <p>list of all the warehouses</p>
+    </>
   );
 }

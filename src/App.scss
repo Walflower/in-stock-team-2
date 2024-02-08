@@ -3,3 +3,39 @@
 .App {
   text-align: center;
 }
+
+//don't know if this should be included.
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
+
+.main {
+  background-color: $background--lightgrey;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    height: 90vh; // this height needs to be able to change depending on page/route
+    width: 100%;
+    position: relative;
+    bottom: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+    z-index: 7;
+    background-color: $primary--white;
+
+    @include tablet {
+      margin-right: $pad--24;
+      margin-left: $pad--24;
+    }
+
+    @include desktop {
+      max-width: 1042px;
+    }
+  }
+}

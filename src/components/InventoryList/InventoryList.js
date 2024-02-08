@@ -1,8 +1,10 @@
-import "./Inventory.scss"
+import "./InventoryList.scss";
 
-export function Inventory() {
-    return (
-        <>
-        </>
-    )
+export default function InventoryList() {
+  return (
+    <>
+      <h1>Inventory List</h1>
+      <p>hfdjhfdjhf</p>
+    </>
+  );
 }

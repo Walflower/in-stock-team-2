@@ -8,9 +8,13 @@ import { Footer } from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
 import { Inventories } from "./pages/Inventories/Inventories";
 import InventoryList from "./components/InventoryList/InventoryList.jsx";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 function App() {
   return (
+    <>
+    <WarehouseDetails/>
 <InventoryList/>
+</>
     // <BrowserRouter>
     //   <Header />
     //   <Routes>

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+
 import "./WarehouseDetails.scss";
 import { useParams } from "react-router-dom";
 

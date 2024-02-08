@@ -4,22 +4,13 @@
   text-align: center;
 }
 
-//don't know if this should be included.
-// *,
-// *::before,
-// *::after {
-//   box-sizing: border-box;
-// }
-
 .main {
   background-color: $background--lightgrey;
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &__container {
-    height: 90vh; // this height needs to be able to change depending on page/route
     width: 100%;
     position: relative;
     bottom: 4rem;
@@ -35,7 +26,7 @@
     }
 
     @include desktop {
-      max-width: 1042px;
+      max-width: 1280px;
     }
   }
 }

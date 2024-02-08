@@ -319,6 +319,73 @@
 	}
 }
 
+//Search Fields
+
+@mixin search__input--M {
+	height: s.$height__field--M;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--M;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--M;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	width: s.$width__field--M;
+	background-image: url("../../assets/icons/search-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+	&:focus,
+	&:active {
+		@include field__active;
+		background-image: url("../../assets/icons/search-24px-indigo.svg");
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+	&:invalid {
+		@include field__error;
+	}
+}
+
+@mixin search__input--DT {
+	height: s.$height__field--DT;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--DT;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--DT;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	background-image: url("../../assets/icons/search-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+	&:focus,
+	&:active {
+		@include field__active;
+		background-image: url("../../assets/icons/search-24px-indigo.svg");
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+	&:invalid {
+		@include field__error;
+	}
+}
+
 //Psuedo Elements
 
 @mixin field__placeholder {

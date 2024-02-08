@@ -18,6 +18,10 @@
 	border: none;
 	font-weight: f.$demi;
 	line-height: f.$lheight__h3--DT;
+
+	&:hover {
+		@include cta__primary--hover;
+	}
 }
 
 @mixin cta__primary--M {
@@ -30,6 +34,10 @@
 	border-radius: s.$radius__cta;
 	font-weight: f.$demi;
 	line-height: f.$lheight__h3--M;
+
+	&:hover {
+		@include cta__primary--hover;
+	}
 }
 
 @mixin cta__primary--hover {
@@ -49,6 +57,10 @@
 	border: 1px solid c.$secondary--cloud;
 	font-weight: f.$demi;
 	line-height: f.$lheight__h3--DT;
+
+	&:hover {
+		@include cta__secondary--hover;
+	}
 }
 
 @mixin cta__secondary--M {
@@ -61,72 +73,463 @@
 	border-radius: s.$radius__cta;
 	font-weight: f.$demi;
 	line-height: f.$lheight__h3--M;
+
+	&:hover {
+		@include cta__secondary--hover;
+	}
 }
 
 @mixin cta__secondary--hover {
 	color: c.$primary--indigo;
-    border: 1px solid c.$primary--indigo;
+	border: 1px solid c.$primary--indigo;
 }
 
-//Delete 
+//Delete
 
 @mixin cta__delete--DT {
-    width: s.$width__cta--DT;
-    height: s.$height__cta--DT;
-    padding: 0 s.$pad__cta--DT;
-    border-radius: s.$radius__cta;
-    font-size: f.$size__h3--DT;
-    background-color: c.$support--red;
-    color: c.$primary--white;
-    font-weight: f.$demi;
-    line-height: f.$lheight__h3--DT;
-    border: none;
+	width: s.$width__cta--DT;
+	height: s.$height__cta--DT;
+	padding: 0 s.$pad__cta--DT;
+	border-radius: s.$radius__cta;
+	font-size: f.$size__h3--DT;
+	background-color: c.$support--red;
+	color: c.$primary--white;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--DT;
+	border: none;
+
+	&:hover {
+		@include cta__delete--hover;
+	}
 }
 
 @mixin cta__delete--M {
-    width: s.$width__cta--M;
-    height: s.$height__cta--M;
-    font-size: f.$size__h3--M;
-    background-color: c.$support--red;
-    color: c.$primary--white;
-    font-weight: f.$demi;
-    line-height: f.$lheight__h3--M;
-    border: none;
-    border-radius: s.$radius__cta;
+	width: s.$width__cta--M;
+	height: s.$height__cta--M;
+	font-size: f.$size__h3--M;
+	background-color: c.$support--red;
+	color: c.$primary--white;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--M;
+	border: none;
+	border-radius: s.$radius__cta;
+
+	&:hover {
+		@include cta__delete--hover;
+	}
 }
 
 @mixin cta__delete--hover {
-    background-color: c.$background--graphite;
+	background-color: c.$background--graphite;
 }
 
 // Text CTA Links
 
 @mixin cta__link--DT {
-    font-size: f.$size__h3--DT;
-    color: c.$primary--indigo;
-    font-weight: f.$demi;
-    line-height: f.$lheight__h3--DT;
-    text-decoration: none;
-    background-image: url("../../assets/icons/chevron_right-24px.svg");
-    background-repeat: no-repeat;
-    background-position: right;
-    padding-right: s.$pad__link--icon;
-    background-size: s.$size__icon;
+	font-size: f.$size__h3--DT;
+	color: c.$primary--indigo;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--DT;
+	text-decoration: none;
+	background-image: url("../../assets/icons/chevron_right-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: s.$pad__link--icon;
+	background-size: s.$size__icon;
+
+	&:hover {
+		@include cta__link--hover;
+	}
 }
 
 @mixin cta__link--M {
-    font-size: 0.845rem;
-    color: c.$primary--indigo;
-    font-weight: f.$demi;
-    line-height: f.$lheight__h3--M;
-    text-decoration: none;
-    background-image: url("../../assets/icons/chevron_right-24px.svg");
-    background-repeat: no-repeat;
-    background-position: right;
-    padding-right: s.$pad__link--icon;
-    background-size: s.$size__icon;
+	font-size: 0.845rem;
+	color: c.$primary--indigo;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--M;
+	text-decoration: none;
+	background-image: url("../../assets/icons/chevron_right-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: s.$pad__link--icon;
+	background-size: s.$size__icon;
+
+	&:hover {
+		@include cta__link--hover;
+	}
 }
 
 @mixin cta__link--hover {
-    text-decoration: underline;
+	text-decoration: underline;
+}
+
+//Form Fields
+
+//Text Fields
+
+//Labels
+
+@mixin fieldtext__label--M {
+	font-size: f.$size__h3--M;
+	color: c.$primary--black;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--M;
+}
+
+@mixin fieldtext__label--DT {
+	font-size: f.$size__h3--DT;
+	color: c.$primary--black;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--DT;
+}
+
+//Inputs
+
+@mixin field__text--M {
+	height: s.$height__field--M;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--M;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--M;
+	color: c.$primary--black;
+	border: 1px solid c.$secondary--cloud;
+	width: s.$width__field--M;
+	&:focus-visible {
+		outline: none;
+	}
+
+	&::placeholder {
+		@include field__placeholder;
+	}
+
+	&:focus,
+	&:active,
+	&:not(:placeholder-shown) {
+		@include field__active;
+
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+
+	&:invalid {
+		@include field__error;
+	}
+}
+
+@mixin field__text--DT {
+	height: s.$height__field--DT;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--DT;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--DT;
+	color: c.$primary--black;
+	border: 1px solid c.$secondary--cloud;
+
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+
+	&:focus,
+	&:active,
+	&:not(:placeholder-shown) {
+		@include field__active;
+
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+
+	&:invalid {
+		@include field__error;
+	}
+}
+
+//Dropdown Fields
+
+//Labels
+
+@mixin drop__label--M {
+	font-size: f.$size__h3--M;
+	color: c.$primary--black;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--M;
+}
+
+@mixin drop__label--DT {
+	font-size: f.$size__h3--DT;
+	color: c.$primary--black;
+	font-weight: f.$demi;
+	line-height: f.$lheight__h3--DT;
+}
+
+//Dropdown Select
+
+//Select doesn't take placeholder text as an input
+//To create a placeholder of Please Select, use the following:
+// <option value="" disabled selected hidden>Please Select</option>
+// before you set your options for the warehouses, this will set the inital as Please Select
+// and the hidden hides it from the dropdown options so it acts as placeholder text
+
+@mixin drop__select--M {
+	height: s.$height__field--M;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--M;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--M;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	width: s.$width__field--M;
+	background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	appearance: none;
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+
+	&:focus,
+	&:active {
+		@include field__active;
+		background-image: url("../../assets/icons/arrow_drop_down-24px-indigo.svg");
+
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+
+	&:invalid {
+		@include field__error;
+	}
+}
+
+@mixin drop__select--DT {
+	height: s.$height__field--DT;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--DT;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--DT;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	appearance: none;
+	width: s.$width__field--M; //can play with this width in your scss file classname
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+
+	&:focus,
+	&:active {
+		@include field__active;
+
+		background-image: url("../../assets/icons/arrow_drop_down-24px-indigo.svg");
+
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+
+	&:invalid {
+		@include field__error;
+	}
+}
+
+//Search Fields
+
+@mixin search__input--M {
+	height: s.$height__field--M;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--M;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--M;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	width: s.$width__field--M;
+	background-image: url("../../assets/icons/search-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+	&:focus,
+	&:active {
+		@include field__active;
+		background-image: url("../../assets/icons/search-24px-indigo.svg");
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+}
+
+@mixin search__input--DT {
+	height: s.$height__field--DT;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--DT;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--DT;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	background-image: url("../../assets/icons/search-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+	&:focus,
+	&:active {
+		@include field__active;
+		background-image: url("../../assets/icons/search-24px-indigo.svg");
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+}
+
+//Radio Buttons
+
+//Labels
+
+//Main Label
+@mixin status__label--M {
+	font-size: f.$size__h3--M;
+	line-height: f.$lheight__h3--M;
+	color: c.$primary--black;
+	font-weight: f.$demi;
+}
+
+@mixin status__label--DT {
+	font-size: f.$size__h3--DT;
+	line-height: f.$lheight__h3--DT;
+	color: c.$primary--black;
+	font-weight: f.$demi;
+}
+
+//Radio Lables
+//<label className="radio__label--dt">
+//<input type="radio" className="radio__btn" name="status" />
+//<span>In stock </span>
+//</label>
+
+@mixin radio__label--M {
+	font-size: f.$size__h3--M;
+	line-height: f.$lheight__h3--M;
+	color: c.$secondary--slate;
+	font-weight: f.$regular;
+}
+
+@mixin radio__label--DT {
+	font-size: f.$size__h3--DT;
+	line-height: f.$lheight__h3--DT;
+	color: c.$secondary--slate;
+	font-weight: f.$regular;
+}
+
+//Radio Buttons
+@mixin radio__btn {
+	display: hidden;
+	margin-right: 0.5rem;
+
+	&:checked {
+		border-color: c.$primary--indigo;
+	}
+
+	&:checked + span {
+		color: c.$primary--black;
+	}
+}
+
+//Tags
+
+@mixin tag__out--M {
+	font-size: f.$size__h3--M;
+	line-height: f.$lheight__h3--M;
+	color: c.$support--red;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(201, 69, 21, 0.07);
+	height: s.$height__tag--M;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+@mixin tag__out--DT {
+	font-size: f.$size__h3--DT;
+	line-height: f.$lheight__h3--DT;
+	color: c.$support--red;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(201, 69, 21, 0.07);
+	height: s.$height__tag--DT;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+@mixin tag__in--M {
+	font-size: f.$size__h3--M;
+	line-height: f.$lheight__h3--M;
+	color: c.$support--green;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(21, 132, 99, 0.07);
+	height: s.$height__tag--M;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+@mixin tag__in--DT {
+	font-size: f.$size__h3--DT;
+	line-height: f.$lheight__h3--DT;
+	color: c.$support--green;
+	font-weight: f.$demi;
+	border: none;
+	border-radius: s.$radius__tag;
+	background-color: rgba(21, 132, 99, 0.07);
+	height: s.$height__tag--DT;
+	width: auto;
+	padding: 0 s.$pad__tag;
+}
+
+//Psuedo Elements
+
+@mixin field__placeholder {
+	color: c.$secondary--slate;
+}
+
+@mixin field__active {
+	border: 1.5px solid c.$primary--indigo;
+	color: c.$primary--black;
+}
+
+@mixin field__error {
+	border: 1.5px solid c.$support--red;
 }

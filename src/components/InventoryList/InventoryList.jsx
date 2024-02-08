@@ -1,15 +1,8 @@
-// import searchIcon from "../../assets/icons/search-24px.svg";
-// import arrowDropDown from "../../assets/icons/arrow_drop_down-24px.svg";
-// import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useParams } from "react-router";
 import "./InventoryList.scss";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
-import chevronRightIcon from "../../assets/icons/chevron_right-24px.svg";
 
 function InventoryList() {
   return (
@@ -83,11 +76,8 @@ function InventoryList() {
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">Electronics</p>
               </li>
-
-              
-
               <li className="inventory__info-tablet inventory__info-tag-tablet">
-                <p className="inventory__detail-tablet   inventory__detail-tag-tablet">
+                <p className="inventory__detail-tablet inventory__detail-tag-tablet">
                   IN STOCK
                 </p>
               </li>
@@ -113,7 +103,7 @@ function InventoryList() {
               </li>
             </ul>
           </div>
-          {/* ////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+          {/* mobile */}
           <div className="inventory__container">
             <section className="inventory__list">
               <ul className="inventory__item">
@@ -122,16 +112,11 @@ function InventoryList() {
                     <div className="inventory__header-wrapper">
                       <h4 className="inventory__header">INVENTORY ITEM</h4>
                     </div>
-                    {/* <div className="inventory__detail-wrapper"> */}
                     <div className="inventory__detail-content">
                       <p className="inventory__detail inventory__detail--link">
                         Television
                       </p>
                     </div>
-                    {/* <div className="inventory__detail-content">
-              <img className="inventory__detail" src={chevronRightIcon} alt="sort"/>
-            </div> */}
-                    {/* </div> */}
                   </li>
 
                   <li className="inventory__info">

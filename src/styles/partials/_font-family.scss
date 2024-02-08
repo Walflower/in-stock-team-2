@@ -1,15 +1,13 @@
 @font-face {
 	font-family: "TitilliumWeb";
+	src: local("TitilliumWeb"), url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
 	font-style: normal;
 	font-weight: 400;
-	src: local("TitilliumWeb") url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype"),
-		url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 }
 
 @font-face {
 	font-family: "TitilliumWeb";
+	src: local("TitilliumWeb"), url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
 	font-style: normal;
 	font-weight: 600;
-	src: local("TitilliumWeb") url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype"),
-		url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
 }

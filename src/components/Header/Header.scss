@@ -1,0 +1,54 @@
+@use "../../styles/partials/index" as *;
+
+.header {
+  background-color: $background--graphite;
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    height: 20vh;
+  }
+
+  &__logo {
+    width: 100px;
+
+    @include tablet {
+      padding: unset;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    padding-top: $pad--24;
+
+    @include tablet {
+      height: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      padding-top: $pad--24;
+      padding-left: $pad--16;
+    }
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1042px;
+    }
+  }
+
+  &__button {
+    @include cta__primary--DT;
+    background-color: $background--graphite;
+    color: $secondary--cloud;
+
+    &:hover {
+      background-color: $primary--black;
+      color: $background--lightgrey;
+    }
+  }
+}

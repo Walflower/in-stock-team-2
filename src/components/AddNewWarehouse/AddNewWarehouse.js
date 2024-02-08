@@ -13,7 +13,7 @@ export function AddNewWarehouse() {
     const[newWarehouse, setNewWarehouse] = useState([])
     
     useEffect(() => {
-        const putNewWarehouse = async () => {
+        const addNewWarehouse = async () => {
             try {
                 const response = await axios.get(`${baseURL}/warehouses`)
                 setNewWarehouse(response.data)
@@ -21,7 +21,7 @@ export function AddNewWarehouse() {
                 console.error(error)
             }
             }
-        putNewWarehouse()
+        addNewWarehouse()
     }, [])
 
     return (

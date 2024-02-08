@@ -6,6 +6,8 @@ import { Footer } from "./components/Footer/Footer";
 import { Warehouses } from "./pages/Warehouses/Warehouses";
 import { Inventories } from "./pages/Inventories/Inventories";
 import InventoryList from "./components/InventoryList/InventoryList.jsx";
+import {AddNewWarehouse} from './components/AddNewWarehouse/AddNewWarehouse.js';
+
 function App() {
   return (
     <>
@@ -13,12 +15,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Warehouses />} />
+        {/* <Route path="/" element={<Warehouses />} />
         <Route path="/:warehouseId" element={<Warehouses />} />
         <Route path="/:warehouseId/edit" element={<Warehouses />} />
-        <Route path="/:warehouseId/delete" element={<Warehouses />} />
-        <Route path="/warehouse-add" element={<Warehouses />} />
-        <Route path="/delete-warehouse" element={<Warehouses />} />
+        <Route path="/:warehouseId/delete" element={<Warehouses />} /> */}
+        <Route path="/warehouse-add" element={<AddNewWarehouse />} /> {/* **** DON'T FORGET TO CHANGE BACK */}
+        {/* <Route path="/delete-warehouse" element={<Warehouses />} />
 
         <Route path="/inventory-list" element={<Inventories />} />
         <Route path="/iventory-list/delete-item" element={<Inventories />} />
@@ -29,7 +31,7 @@ function App() {
         />
         <Route path="/add-new-inventory" element={<Inventories />} />
 
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -4,11 +4,12 @@ import "./Header.scss";
 import logo from "../../assets/logo/InStock-Logo.svg";
 
 export function Header() {
-  // Get the current page path or use any other method to determine the current page
+  
   const currentPage = window.location.pathname;
 
-  // Function to determine if a button should have active styles
+  //TODO: isActive is not working on the new routes. Need to fix
   const isActive = (page) => currentPage === page;
+ 
   return (
     <header className="header">
       <nav className="header__nav">

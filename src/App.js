@@ -6,7 +6,7 @@ import { NotFound } from "./pages/NotFound";
 import { Header } from "./components/Header/Header.js";
 import { Footer } from "./components/Footer/Footer";
 
-import { Warehouses } from "./pages/Warehouses/Warehouses";
+import { Warehouses } from "./components/Warehouses/Warehouses";
 import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
 import { DeleteWarehouse } from "./components/DeleteWarehouse/DeleteWarehouse";
 import { AddNewWarehouse } from "./components/AddNewWarehouse/AddNewWarehouse";

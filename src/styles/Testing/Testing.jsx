@@ -1,6 +1,6 @@
 import "./Testing.scss";
 
-export default function Testing() {
+function Testing() {
 	return (
 		<div className="Testing">
 			<h1>Testing</h1>
@@ -78,13 +78,27 @@ export default function Testing() {
 					</label>
 				</div>
 			</form>
-			<button  className="tag__oos--m">OUT OF STOCK</button>
+			<button className="tag__oos--m">OUT OF STOCK</button>
 			<br />
 			<button className="tag__is--m">IN STOCK</button>
 			<br />
 			<button className="tag__oos--dt">OUT OF STOCK</button>
 			<br />
-			<button  className="tag__is--dt">IN STOCK</button>
+			<button className="tag__is--dt">IN STOCK</button>
+
+			<section>
+				<img src="../../assets/icons/arrow_back-24px.svg" alt="" />
+				<img src="../../assets/icons/arrow_drop_down-24px.svg" alt="" />
+				<img src="../../assets/icons/chevron_right-24px.svg" alt="" />
+				<img src="../../assets/icons/close-24px.svg" alt="" />
+				<img src="../../assets/icons/delete_outline-24px.svg" alt="" />
+				<img src="../../assets/icons/edit-24px.svg" alt="" />
+				<img src="../../assets/icons/error-24px.svg" alt="" />
+				<img src="../../assets/icons/search-24px.svg" alt="" />
+				<img src="../../assets/icons/sort-24px.svg" alt="" />
+			</section>
 		</div>
 	);
 }
+
+export default Testing;

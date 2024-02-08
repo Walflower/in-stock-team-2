@@ -112,44 +112,40 @@
 		gap: $pad--16;
 
 		.form__label--m {
-			@include status__label--M; 
+			@include status__label--M;
 		}
 
 		.form__label--dt {
-			@include status__label--DT; 
+			@include status__label--DT;
 		}
 
-        .radio__label--m {
-            @include radio__label--M; 
-            .radio__btn {
-                @include radio__btn; 
-            }
-        }
-		.radio__label--dt {
-            @include radio__label--DT; 
+		.radio__label--m {
+			@include radio__label--M;
 			.radio__btn {
-				@include radio__btn; 
+				@include radio__btn;
+			}
+		}
+		.radio__label--dt {
+			@include radio__label--DT;
+			.radio__btn {
+				@include radio__btn;
 			}
 		}
 	}
 }
 
 .tag__oos--m {
-
-    @include tag__out--M;
-
+	@include tag__out--M;
 }
 
 .tag__is--m {
-
-    @include tag__in--M;
+	@include tag__in--M;
 }
 
 .tag__oos--dt {
-    @include tag__out--DT;
+	@include tag__out--DT;
 }
 
 .tag__is--dt {
-
-    @include tag__in--DT;
+	@include tag__in--DT;
 }

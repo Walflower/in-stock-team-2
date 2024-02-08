@@ -1,8 +1,7 @@
-import './EditWarehouse.scss'
+import "./EditWarehouse.scss";
+import { useParams } from "react-router-dom";
 
 export function EditWarehouse() {
-    return (
-        <>
-        </>
-    )
+  const { warehouseId } = useParams();
+  return <></>;
 }

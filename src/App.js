@@ -1,8 +1,8 @@
-import TablesInventory from "./components/TablesInventory/TablesInventory";
+import InventoryList from "./components/InventoryList/InventoryList";
 function App() {
   return (
     <div className="App">
-     <TablesInventory/>
+     <InventoryList/>
     </div>
   );
 }

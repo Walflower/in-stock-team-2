@@ -3,6 +3,7 @@ import './EditWarehouse.scss'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+
 export function EditWarehouse() {
 
     // const [currentWarehouse, setCurrentWarehoue] = useState
@@ -13,45 +14,66 @@ export function EditWarehouse() {
 
     return (
         <>
-            <h2 className='edit__warehouse'>Edit Warehouse</h2>
+            <h1 className='edit__warehouse'>Edit Warehouse</h1>
 
             <section className='details'>
 
                 <form className='details__form'>
 
                     <article className='details__container'>
-                        <h2 className='details__warehouse'>Warehouse Details</h2>
-                    
-                        <label for="name" className='details__label'>Warehouse Name</label>
-                        <input type='text' id="name" name="name" placeholder='Washington' className='details__input'></input>
 
-                        <label for="street" className='details__label'>Street Address</label>
-                        <input type='text' id="street" name="street" placeholder='300 Pearl Street SW'  className='details__input'></input>
+                        <h2 className='details__subheader'>Warehouse Details</h2>
+                        
+                        <div className='details__subcontainer'>
+                            <label htmlFor="location" className='details__label'>Warehouse Name</label>
+                            <input type='text' id="location" name="location" placeholder='Washington' className='details__input'></input>
+                        </div>
 
-                        <label for="city" className='details__label'>City</label>
-                        <input type='text' id="city" name="city" placeholder='Washington'  className='details__input'></input>
+                        <div className='details__subcontainer'>
+                            <label htmlFor="street" className='details__label'>Street Address</label>
+                            <input type='text' id="street" name="street" placeholder='300 Pearl Street SW'  className='details__input'></input>
+                        </div>
 
-                        <label for="country" className='details__label'>Country</label>
-                        <input type='text' id="country" name="country" placeholder='USA'  className='details__input'></input>
+                        <div className='details__subcontainer'>
+                            <label htmlFor="city" className='details__label'>City</label>
+                            <input type='text' id="city" name="city" placeholder='Washington'  className='details__input'></input>
+                        </div>
+
+                        <div className='details__subcontainer'>
+                            <label htmlFor="country" className='details__label'>Country</label>
+                            <input type='text' id="country" name="country" placeholder='USA'  className='details__input'></input>
+                        </div>    
+
                         </article>
 
                     <div className='divider'></div>
                 
                     <article className='details__container'>
-                        <h2 className='details__contact'>Contact Details</h2>
+
+                        <h2 className='details__subheader'>Contact Details</h2>
                         
-                        <label for="name" className='details__label'>Contact Name</label>
-                        <input type='text' id="name" name="contact name" placeholder='Graeme Lyon' className='details__input'></input>
+                        <div className='details__subcontainer'>
+                            <label htmlFor="name" className='details__label'>Contact Name</label>
+                            <input type='text' id="name" name="name" placeholder='Graeme Lyon' className='details__input'></input>
+                        </div>    
 
-                        <label for="position" className='details__label'>Position</label>
-                        <input type='text' id="position" name="contact position" placeholder='Warehouse Manager' className='details__input'></input>
+                        <div className='details__subcontainer'>
+                            <label htmlFor="position" className='details__label'>Position</label>
+                            <input type='text' id="position" name="position" placeholder='Warehouse Manager' className='details__input'></input>
+                        </div>    
 
-                        <label for="phone" className='details__label'>Phone Number</label>
-                        <input type='number' id="phone" name="phone number" placeholder='+1 (647) 504-0911' className='details__input'></input>
 
-                        <label for="email" className='details__label'>Email</label>
-                        <input type='email' id="email" name="contact email" placeholder='glyon@instock.com' className='details__input'></input>
-                        </article>
+                        <div className='details__subcontainer'>
+                            <label htmlFor="phone" className='details__label'>Phone Number</label>
+                            <input type='number' id="phone" name="phone" placeholder='+1 (647) 504-0911' className='details__input'></input>
+                        </div>    
+
+                        <div className='details__subcontainer'>
+                            <label htmlFor="email" className='details__label'>Phone Number</label>
+                            <input type='email' id="email" name="email" placeholder='glyon@instock.com' className='details__input'></input>
+                        </div>     
+
+                    </article>
                     
                         <div className='button'>
                                 <button className='button__save'></button>

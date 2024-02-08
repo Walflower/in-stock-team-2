@@ -1,7 +1,29 @@
+import { useParams } from "react-router-dom"
 import { AddButton } from "../AddButton/AddButton"
 import "./AddNewWarehouse.scss"
+import { useState } from "react"
+import axios from "axios"
+import { useEffect } from "react"
 
 export function AddNewWarehouse() {
+
+    const baseURL = "http://localhost:8000"
+    const {id} = useParams()
+
+    const[newWarehouse, setNewWarehouse] = useState([])
+    
+    useEffect(() => {
+        const putNewWarehouse = async () => {
+            try {
+                const response = await axios.get(`${baseURL}/warehouses`)
+                setNewWarehouse(response.data)
+            } catch (error) {
+                console.error(error)
+            }
+            }
+        putNewWarehouse()
+    }, [])
+
     return (
         <>
             <h1 className='edit__warehouse'>Add New Warehouse</h1>

@@ -195,6 +195,7 @@
 	line-height: f.$lheight__h3--DT;
 	color: c.$primary--black;
 	border: 1px solid c.$secondary--cloud;
+
 	&:focus-visible {
 		outline: none;
 	}
@@ -235,7 +236,7 @@
 	line-height: f.$lheight__h3--DT;
 }
 
-//Inputs
+//Dropdown Select
 
 @mixin drop__select--M {
 	height: s.$height__field--M;
@@ -262,6 +263,44 @@
 	&:focus,
 	&:active {
 		@include field__active;
+
+		&::placeholder {
+			color: c.$primary--black;
+		}
+	}
+
+	&:invalid {
+		@include field__error;
+	}
+}
+
+@mixin drop__select--DT {
+	height: s.$height__field--DT;
+	padding: 0 s.$pad__field;
+	border-radius: s.$radius__field;
+	font-size: f.$size__h3--DT;
+	font-weight: f.$regular;
+	line-height: f.$lheight__h3--DT;
+	color: c.$secondary--slate;
+	border: 1px solid c.$secondary--cloud;
+	background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+	background-repeat: no-repeat;
+	background-position: right 1.25rem center;
+	background-size: 1.5rem;
+	appearance: none;
+	width: s.$width__field--M; //can play with this width in your scss file classname
+	&:focus-visible {
+		outline: none;
+	}
+	&::placeholder {
+		@include field__placeholder;
+	}
+
+	&:focus,
+	&:active {
+		@include field__active;
+
+		background-image: url("../../assets/icons/arrow_drop_down-24px-indigo.svg");
 
 		&::placeholder {
 			color: c.$primary--black;

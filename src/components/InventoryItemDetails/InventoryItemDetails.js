@@ -1,8 +1,7 @@
-import "./InventoryItemDetails.scss"
+import "./InventoryItemDetails.scss";
+import { useParams } from "react-router-dom";
 
 export function InventoryItemDetails() {
-    return (
-        <>
-        </>
-    )
+  const { inventoryId } = useParams();
+  return <></>;
 }

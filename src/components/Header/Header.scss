@@ -50,11 +50,12 @@
   }
 
   &__logo {
-    width: 100px;
+    // width: 128.59px;
+    width: 8.037rem;
 
-    @include tablet {
-      padding: unset;
-    }
+    // @include tablet {
+    //   padding: unset;
+    // }
   }
 
   &__button {
@@ -64,6 +65,7 @@
 
     &:hover {
       // background-color: $primary--black;
+
       color: $primary--white;
     }
   }

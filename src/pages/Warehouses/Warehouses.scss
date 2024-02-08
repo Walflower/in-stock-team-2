@@ -1,45 +1,36 @@
 @use "../../styles/partials/index" as *;
 
-//don't know if this works
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+//don't know if this should be included.
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
 
 .main {
   background-color: $background--lightgrey;
   height: 90vh;
-
-  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &__container {
-    // width: 100%;
-    position: absolute;
-    top: 5.5rem;
-    z-index: 7;
-    right: $pad--16;
-    left: $pad--16;
-    // background-color: $primary--white;
-    background-color: lightpink;
-    height: 90vh;
+    height: 90vh; // this height needs to be able to change depending on page/route
+    width: 100%;
+    position: relative;
+    bottom: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
 
-    //TODO container does align in the center at desktop
+    z-index: 7;
+    background-color: $primary--white;
+
     @include tablet {
-      width: 100%;
-      top: 5.5rem;
-      background-color: lightpink;
-      // right: unset;
-      // left: unset;
-      //   margin: 0 $pad--16;
+      margin-right: $pad--24;
+      margin-left: $pad--24;
     }
+
     @include desktop {
-      width: 100%;
-      top: 5.5rem;
-      right: unset;
-      left: unset;
       max-width: 1042px;
     }
   }

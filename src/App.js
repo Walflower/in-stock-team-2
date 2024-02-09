@@ -11,7 +11,7 @@ import InventoryList from "./components/InventoryList/InventoryList.jsx";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 function App() {
   return (
-
+ 
     <BrowserRouter>
         <Warehouses/>
       <Header />

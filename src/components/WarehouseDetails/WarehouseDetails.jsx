@@ -66,6 +66,8 @@ export function WarehouseDetails() {
         </ul>
       </section>
       </div>
+
+      <h2> WAREHOUSE INEVENTORY LIST placeholder</h2>
     </main>
   );
 }

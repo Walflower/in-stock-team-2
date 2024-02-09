@@ -1,0 +1,12 @@
+@use '../../styles/partials/index';
+
+* {
+    font-family: 'TitilliumWeb', Arial, Helvetica, sans-serif;
+}
+
+// inventory item button within LineItem bar
+.item {
+    background-image: url('../../assets//icons/chevron_right-24px.svg');
+    color: $primary--indigo;
+    font-weight: 700;
+}

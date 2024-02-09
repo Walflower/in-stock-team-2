@@ -3,3 +3,29 @@
 .App {
   text-align: center;
 }
+
+.main {
+  background-color: $background--lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    width: 100%;
+    position: relative;
+    bottom: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    z-index: 7;
+    background-color: $primary--white;
+
+    @include tablet {
+      margin-right: $pad--24;
+      margin-left: $pad--24;
+    }
+
+    @include desktop {
+      max-width: 1280px;
+    }
+  }
+}

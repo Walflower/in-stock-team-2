@@ -3,12 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Header } from "./components/Header/Header.js";
 import { Footer } from "./components/Footer/Footer";
-
 import { Warehouses } from "./components/Warehouses/Warehouses";
 import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
 import { DeleteWarehouse } from "./components/DeleteWarehouse/DeleteWarehouse";
 import { AddNewWarehouse } from "./components/AddNewWarehouse/AddNewWarehouse";
-import { EditWarehouse } from "./components/EditWarehouse/EditWareHouse.js";
+import { EditWarehouse } from "./components/EditWarehouse/EditWarehouse.js";
 import { EditInventory } from "./components/EditInventory/EditInventory";
 import { AddNewInventory } from "./components/AddNewInventory/AddNewInventory";
 import { DeleteInventoryItem } from "./components/DeleteInventoryItem/DeleteInventoryItem";

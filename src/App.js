@@ -13,7 +13,6 @@ import { AddNewWarehouse } from "./components/AddNewWarehouse/AddNewWarehouse";
 import { EditWarehouse } from "./components/EditWarehouse/EditWarehouse";
 import { EditInventory } from "./components/EditInventory/EditInventory";
 import { AddNewInventory } from "./components/AddNewInventory/AddNewInventory";
-import { InventoryList } from "./components/InventoryList/InventoryList";
 import { DeleteInventoryItem } from "./components/DeleteInventoryItem/DeleteInventoryItem";
 import { InventoryItemDetails } from "./components/InventoryItemDetails/InventoryItemDetails";
 import Inventories from "./components/InventoryList/Inventories";
@@ -34,7 +33,6 @@ function App() {
             />
             <Route path="/warehouse-add" element={<AddNewWarehouse />} />
 
-            {/* <Route path="/inventory-list" element={<InventoryList />} /> */}
             <Route path="/inventory-list" element={<Inventories />} />
             <Route
               path="/inventory-list/:iventoryId"

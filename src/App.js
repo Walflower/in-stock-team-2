@@ -1,8 +1,6 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import { NotFound } from "./pages/NotFound";
-
 import { Header } from "./components/Header/Header.js";
 import { Footer } from "./components/Footer/Footer";
 

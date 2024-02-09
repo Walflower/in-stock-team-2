@@ -1,0 +1,83 @@
+@use '../../styles/partials/index' as *;
+
+// mobile first view
+
+.edit__warehouse {
+    // Styles for h2 with class edit__warehouse
+    font-size: $size__h1--M;
+}
+  
+.details {
+    // Styles for section with class details
+
+}
+  
+#details__form {
+    // Styles for form with class details__form
+
+}
+.details__container {
+
+}
+
+.divider {
+    border-bottom-style: solid;
+    border-bottom-width: 0.15rem;
+    margin: 1rem 0;
+    border-bottom-color: $secondary--cloud;
+}
+
+.details__subheader {
+    font-size: $size__h2--M;
+    color: $primary--black;
+}
+
+.details__subcontainer {
+    margin: 1rem 0;
+}
+
+.details__label {
+    // Styles for labels inside divs
+    color: $primary--black;
+    font-size: $size__h3--M;
+    font-size: $lheight__h3--M;
+    font-weight: 600;
+}
+        
+.details__input {
+    // Styles for inputs inside divs
+    font-size: $size__h3--M;
+    font-size: $lheight__h3--M;
+    border-radius: 1rem;
+    height: 2.25rem;
+    width: 100%;
+
+    &::placeholder {
+        padding: 1rem;
+        color: $secondary--slate;
+    }
+}
+ 
+.button {
+// Styles for div with class button
+
+.button__save {
+    // Styles for button with class button__save
+}
+
+.button__cancel {
+    // Styles for button with class button__cancel
+    }
+}
+
+@include tablet {
+
+}
+
+@include desktop {
+    
+}
+
+
+
+

@@ -16,6 +16,7 @@ import { AddNewInventory } from "./components/AddNewInventory/AddNewInventory";
 import { InventoryList } from "./components/InventoryList/InventoryList";
 import { DeleteInventoryItem } from "./components/DeleteInventoryItem/DeleteInventoryItem";
 import { InventoryItemDetails } from "./components/InventoryItemDetails/InventoryItemDetails";
+import Inventories from "./components/InventoryList/Inventories";
 
 function App() {
   return (
@@ -33,7 +34,8 @@ function App() {
             />
             <Route path="/warehouse-add" element={<AddNewWarehouse />} />
 
-            <Route path="/inventory-list" element={<InventoryList />} />
+            {/* <Route path="/inventory-list" element={<InventoryList />} /> */}
+            <Route path="/inventory-list" element={<Inventories />} />
             <Route
               path="/inventory-list/:iventoryId"
               element={<InventoryItemDetails />}

@@ -69,7 +69,7 @@ function InventoryList({inventoryList}) {
             </ul>
 
             {inventoryList.map((inventory) => {
-              return(<ul className="inventory__row-tablet inventory__item-tablet">
+              return(<ul key={inventory.id} className="inventory__row-tablet inventory__item-tablet">
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet inventory__detail--link-tablet">
                   {inventory.item_name}

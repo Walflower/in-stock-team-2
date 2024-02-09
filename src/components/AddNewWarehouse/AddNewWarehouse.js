@@ -8,7 +8,7 @@ import { useEffect } from "react"
 export function AddNewWarehouse() {
 
     const baseURL = "http://localhost:8000"
-    const {id} = useParams()
+    const {warehouseId} = useParams()
 
     const[newWarehouse, setNewWarehouse] = useState([])
     

@@ -1,8 +1,7 @@
-import "./DeleteWarehouse.scss"
+import "./DeleteWarehouse.scss";
+import { useParams } from "react-router-dom";
 
 export function DeleteWarehouse() {
-    return (
-        <>
-        </>
-    )
+  const { warehouseId } = useParams();
+  return <></>;
 }

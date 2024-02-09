@@ -3,9 +3,11 @@ import './EditWarehouse.scss'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import { useParams } from "react-router-dom";
 
 export function EditWarehouse() {
+
+    const { warehouseId } = useParams();
     
     // ADD NEW WAEHOUSE 
     const REACT_APP_BASE_URL = "http://localhost:8000"
@@ -120,3 +122,4 @@ export function EditWarehouse() {
         </>
     )
 }
+

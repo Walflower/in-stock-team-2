@@ -8,13 +8,14 @@ export function EditInventory() {
 
     const[warehouses, setWarehouse] = useState([])
 
+    const { inventoryId } = useParams();
+
     const baseURL = "http://localhost:8000"
-    const {id} = useParams 
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get(`baseURL/warehouses/${id}`)
+                const response = await axios.get(`baseURL/warehouses/${inventoryId}`)
                 setWarehouse(response.data)
             } catch (error) {
                 console.error(error)

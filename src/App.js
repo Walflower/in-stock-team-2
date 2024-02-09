@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Header } from "./components/Header/Header.js";
 import { Footer } from "./components/Footer/Footer";
-
 import { Warehouses } from "./components/Warehouses/Warehouses";
 import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
 import { DeleteWarehouse } from "./components/DeleteWarehouse/DeleteWarehouse";

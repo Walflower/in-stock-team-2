@@ -12,9 +12,10 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx
 function App() {
   return (
     <>
-    <WarehouseDetails/>
-<InventoryList/>
-</>
+      <WarehouseDetails />
+      {/* <InventoryList /> */}
+      <Inventories />
+    </>
     // <BrowserRouter>
     //   <Header />
     //   <Routes>

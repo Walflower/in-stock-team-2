@@ -4,10 +4,12 @@ import sortIcon from "../../assets/icons/sort-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 
-function InventoryList() {
+
+function InventoryList({inventoryList}) {
+  console.log("inside inventorylist component", inventoryList);
   return (
     <main>
-      <div className="container">
+      <div className="inventory-container">
         <div className="inventory">
           <div className="inventory-tablet">
             <ul className="inventory__row-tablet inventory__titles-wrapper">
@@ -29,7 +31,7 @@ function InventoryList() {
                 </div>
               </li>
 
-              <li className="inventory__title-container">
+              <li className="inventory__title-container inventory__title-status">
                 <div className="inventory__title-wrapper">
                   <h4 className="inventory__title">STATUS</h4>
                 </div>
@@ -66,27 +68,28 @@ function InventoryList() {
               </li>
             </ul>
 
-            <ul className="inventory__row-tablet inventory__item-tablet">
+            {inventoryList.map((inventory) => {
+              return(<ul className="inventory__row-tablet inventory__item-tablet">
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet inventory__detail--link-tablet">
-                  Television
+                  {inventory.item_name}
                 </p>
               </li>
 
               <li className="inventory__info-tablet">
-                <p className="inventory__detail-tablet">Electronics</p>
+                <p className="inventory__detail-tablet">{inventory.category}</p>
               </li>
               <li className="inventory__info-tablet inventory__info-tag-tablet">
                 <p className="inventory__detail-tablet inventory__detail-tag-tablet">
-                  IN STOCK
+                  {inventory.status}
                 </p>
               </li>
 
               <li className="inventory__info-tablet">
-                <p className="inventory__detail-tablet">500</p>
+                <p className="inventory__detail-tablet">{inventory.quantity}</p>
               </li>
               <li className="inventory__info-tablet">
-                <p className="inventory__detail-tablet">Washington</p>
+                <p className="inventory__detail-tablet">{inventory.warehouse_name}</p>
               </li>
 
               <li className="inventory__info-tablet inventory__actions-tablet">
@@ -102,6 +105,8 @@ function InventoryList() {
                 </div>
               </li>
             </ul>
+            );
+          })}
           </div>
           {/* mobile */}
           <div className="inventory__container">

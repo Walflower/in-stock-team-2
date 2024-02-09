@@ -1,6 +1,8 @@
 import "./WarehouseDetails.scss";
 
 export function WarehouseDetails() {
+
+  
   return (
     <main>
         <div className="container">

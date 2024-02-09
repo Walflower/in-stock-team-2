@@ -23,7 +23,7 @@ p {
   width: 1rem;
   height: 1rem;
 }
-.container {
+.inventory-container {
   background-color: $primary--white;
   color: $primary--black;
   padding: $pad--24 $pad--24;
@@ -70,12 +70,28 @@ p {
         align-items: center;
       }
     }
+    &-status{
+      @include tablet{
+        width: 30%;
+      }
+      @include desktop{
+        width: 20%;
+      }
+    }
   }
   &__info-tablet {
     @include tablet {
       width: 20%;
       display: flex;
         align-items: center;
+    }
+  }
+  &__info-tag-tablet{
+    @include tablet {
+      width: 30%;
+    }
+    @include desktop{
+      width: 20%;
     }
   }
 

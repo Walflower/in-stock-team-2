@@ -3,6 +3,8 @@
 .footer {
   position: relative;
   background-color: $background--lightgrey;
+  display: flex;
+  justify-content: center;
 
   &__copyright {
     padding-bottom: $pad--48;

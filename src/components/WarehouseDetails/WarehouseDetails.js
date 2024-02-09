@@ -1,22 +1,8 @@
 import "./WarehouseDetails.scss";
-
+import { useParams } from "react-router-dom";
 
 export function WarehouseDetails() {
-    return (
-        <>
-            {/* 
-            
-            h3: warehouse address
-            address: warehouse address
-         divider
-         h3: contact name
-         p: contact name
-         p: contact role
+  const { warehouseId } = useParams();
 
-         h3: contact info
-         phone number
-         email
-            */}
-        </>
-    )
+  return <></>;
 }

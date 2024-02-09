@@ -2,53 +2,73 @@
 
 .header {
   background-color: $background--graphite;
-  height: 30vh;
+  height: 15vh;
   width: 100%;
   display: flex;
   justify-content: center;
-
-  @include tablet {
-    height: 20vh;
-  }
-
-  &__logo {
-    width: 100px;
-
-    @include tablet {
-      padding: unset;
-    }
-  }
+  align-items: flex-start;
 
   &__nav {
     width: 100%;
     padding-top: $pad--24;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @include tablet {
-      height: 50%;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
 
       padding-top: $pad--24;
-      padding-left: $pad--16;
+      padding-left: $pad--24;
+      padding-right: $pad--24;
     }
 
     @include desktop {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
       max-width: 1042px;
     }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $pad--16;
+
+    @include tablet {
+      margin-bottom: unset;
+    }
+
+    @include desktop {
+      margin-top: unset;
+    }
+  }
+
+  &__logo {
+    width: 8.037rem;
   }
 
   &__button {
     @include cta__primary--DT;
     background-color: $background--graphite;
     color: $secondary--cloud;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
-      background-color: $primary--black;
-      color: $background--lightgrey;
+      color: $primary--white;
+      text-decoration: underline;
     }
+  }
+  &__button.active {
+    background-color: $primary--black;
   }
 }

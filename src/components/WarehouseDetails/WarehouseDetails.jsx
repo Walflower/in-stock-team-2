@@ -1,8 +1,30 @@
+import { useParams } from "react-router";
 import "./WarehouseDetails.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export function WarehouseDetails() {
+  const warehouseId = useParams();
+  if(!warehouseId){
+    console.log("warehouse id is", warehouseId);
+  }
 
-  
+  const { REACT_APP_API_BASE_PATH } = process.env;
+  const [warehouse, setWarehouse] = useState([]);
+  const fetchWarehouse = async () => {
+    try {
+      // const res = await axios.get(`${REACT_APP_API_BASE_PATH}/inventories`);
+      const res = await axios.get(`http://localhost:8000/warehouses/${warehouseId}`);
+      setWarehouse(res.data);
+      console.log("warehouse data", res.data)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchWarehouse();
+  }, []);
+
   return (
     <main>
         <div className="container">

@@ -23,7 +23,7 @@ p {
   width: 1rem;
   height: 1rem;
 }
-.container {
+.inventory-container {
   background-color: $primary--white;
   color: $primary--black;
   padding: $pad--24 $pad--24;
@@ -52,14 +52,14 @@ p {
     }
   }
 
-  &__row-tablet{
+  &__row-tablet {
     padding-left: $pad--24;
-      padding-right: $pad--24;
-      align-items: center;
-      @include desktop{
-        padding-left: $pad--32;
+    padding-right: $pad--24;
+    align-items: center;
+    @include desktop {
+      padding-left: $pad--32;
       padding-right: $pad--32;
-      }
+    }
   }
   &__title {
     color: $secondary--slate;
@@ -70,12 +70,28 @@ p {
         align-items: center;
       }
     }
+    &-status {
+      @include tablet {
+        width: 30%;
+      }
+      @include desktop {
+        width: 20%;
+      }
+    }
   }
   &__info-tablet {
     @include tablet {
       width: 20%;
       display: flex;
-        align-items: center;
+      align-items: center;
+    }
+  }
+  &__info-tag-tablet {
+    @include tablet {
+      width: 30%;
+    }
+    @include desktop {
+      width: 20%;
     }
   }
 
@@ -94,7 +110,7 @@ p {
         align-items: center;
         padding-top: $pad--16;
         padding-bottom: $pad--16;
-        border-bottom:1px $secondary--cloud solid;
+        border-bottom: 1px $secondary--cloud solid;
       }
     }
   }

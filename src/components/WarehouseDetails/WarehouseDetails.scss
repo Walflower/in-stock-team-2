@@ -1,0 +1,49 @@
+@use "../../styles/partials/index" as *;
+
+h4 {
+  line-height: $lheight__h4--DT;
+  font-size: $size__h4--DT;
+}
+p {
+  line-height: $lheight__p2--DT;
+  font-size: $size__p2--DT;
+}
+
+.container {
+  color: $primary--black;
+  border-top: 1px $secondary--cloud solid;
+  padding-left: $pad--24;
+  padding-right: $pad--24;
+  align-items: center;
+  @include desktop {
+    padding-left: $pad--32;
+    padding-right: $pad--32;
+  }
+}
+
+.warehouse {
+  display: flex;
+  flex-direction: row;
+  &__left {
+    width: 40%;
+    border-right: 1px $secondary--cloud solid;
+  }
+  &__right {
+    width: 60%;
+    padding-left: $pad--24;
+    display: flex;
+    justify-content: flex-start;
+    gap: $pad--24;
+  }
+}
+
+.info {
+  &__title {
+    color: $secondary--slate;
+  }
+  &__wrapper {
+    &-name {
+      width: 35%;
+    }
+  }
+}

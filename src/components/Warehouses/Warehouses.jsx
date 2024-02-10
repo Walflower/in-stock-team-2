@@ -4,6 +4,7 @@ import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { AddNewWarehouse } from "../AddNewWarehouse/AddNewWarehouse";
 
 export function Warehouses() {
   const warehouseId = 2;
@@ -34,7 +35,7 @@ console.log(res.data);
           <h1>Warehouses</h1>
 
           <input></input>
-          <button></button>
+          <Link to={`/warehouse-add`}><button>Add New Warehouse</button></Link>
         </section>
 
 {!loading && warehouseList && warehouseList.length > 0 && (

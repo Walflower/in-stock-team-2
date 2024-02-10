@@ -26,7 +26,7 @@ export function Inventories() {
 
   return (
     <>
-            <h1>Iventory List</h1>
+            <h1>Iventory</h1>
             <input></input>
             <button></button>
          

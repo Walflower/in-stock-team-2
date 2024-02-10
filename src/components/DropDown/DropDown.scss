@@ -1,0 +1,154 @@
+@use "../../styles/partials/index" as *;
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  &__label {
+    color: $primary--black;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4rem;
+    width: 100%;
+
+    @include tablet {
+      font-size: 14px;
+      line-height: 1.6rem;
+    }
+
+    @include desktop {
+      line-height: 1.8rem;
+    }
+  }
+
+  &__input {
+    border-radius: 20px;
+    border: 1px solid $secondary--cloud;
+    color: $primary--black;
+    background-color: $primary--white;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    width: 100%;
+    padding: 0.21rem 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::after {
+      content: "";
+      background: url("../../assets/icons/arrow_drop_down-24px.svg") no-repeat
+        center/1.2rem;
+      padding: 0.688rem 0.4rem;
+      cursor: pointer;
+
+      @include tablet {
+        background-size: 0.93rem;
+        padding: 0.688rem 0.45rem;
+      }
+
+      @include desktop {
+        background-size: 1.1rem;
+        padding: 0.688rem 0.6rem;
+      }
+    }
+
+    @include tablet {
+      padding: 0.4rem 0.9rem;
+    }
+  }
+
+  &__selected {
+    flex: 1;
+  }
+  &__placeholder {
+    color: $secondary--slate;
+    flex: 1;
+    font-size: 11px;
+
+    @include tablet {
+      font-size: 13.2px;
+    }
+  }
+
+  &__options {
+    border: 1px solid $secondary--cloud;
+    border-top: none;
+    border-radius: 15px 15px;
+    background-color: $primary--white;
+    width: 100%;
+    max-height: 9.3rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 59.2px;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+
+    @include tablet {
+      max-height: 6rem;
+      top: 67px;
+    }
+  }
+
+  &__option {
+    padding: 0.25rem 0.9rem;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+
+    &:first-child {
+      padding-top: 0.5rem;
+    }
+
+    &:last-child {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .dropdown__option:hover {
+    background-color: #f0f0f0;
+  }
+
+  //   &__error-container {
+  //   }
+
+  &__error-message {
+    color: $support--red;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.2rem;
+
+    @include tablet {
+      font-size: 14.2px;
+    }
+
+    @include desktop {
+      gap: 0.25rem;
+    }
+
+    &::before {
+      content: "";
+      background: url("../../assets/icons/error-24px.svg") no-repeat
+        center/0.83rem;
+      padding: 0.688rem 0.4rem;
+
+      @include tablet {
+        background-size: 0.93rem;
+        padding: 0.688rem 0.45rem;
+      }
+
+      @include desktop {
+        background-size: 1.1rem;
+        padding: 0.688rem 0.6rem;
+      }
+    }
+  }
+}

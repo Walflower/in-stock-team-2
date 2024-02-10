@@ -1,44 +1,58 @@
 import { useParams } from "react-router-dom"
 import "./AddNewWarehouse.scss"
 import { useState } from "react"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export function AddNewWarehouse() {
+export const AddNewWarehouse = () => {
 
-    const { REACT_APP_API_BASE_PATH } = process.env;
-    const {warehouseId} = useParams()
+    const [warehouseData, setWarehouseData] = useState({
+        warehouse_name: '',
+        address: '',
+        city: '',
+        country: '',
+        contact_name: '',
+        contact_position: '',
+        contact_phone: '',
+        contact_email: ''
+      });
 
-    const [warehouse_name, setLocation] = useState({warehouse_name: ''})
-    const [address, setAddress] = useState({address: ''})
-    const [city, setCity] = useState({city: ''})
-    const [country, setCountry] = useState({country: ''})
-    const [contact_name, setContact] = useState({contact_name: ''})
-    const [contact_position, setPosition] = useState({contact_position: ''})
-    const [contact_phone, setPhone] = useState({contact_phone: ''})
-    const [contact_email, setEmail] = useState({contact_email:''})
+      const navigate = useNavigate();
 
-    // POST new data api
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const newPost = {
-        warehouse_name,
-        address,
-        city,
-        country,
-        contact_name,
-        contact_position,
-        contact_phone,
-        contact_email}
-        console.log(handleSubmit)
-
-        fetch(`http://localhost:8080"/warehouses`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newPost)
-        }).then(() => {
-            console.log("new post added")
-        })
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setWarehouseData({ ...warehouseData, [name]: value });
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const response = await axios.post('http://localhost:8080/warehouses', warehouseData);
+          setWarehouseData({
+            warehouse_name: '',
+            address: '',
+            city: '',
+            country: '',
+            contact_name: '',
+            contact_position: '',
+            contact_phone: '',
+            contact_email: ''
+          });
+          alert('Warehouse added successfully!');
+          console.log("New Warehouse: ", response.data)
+          navigate("/")
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+                const errorMessage = error.response.data.message
+                console.error("Validate error: ", errorMessage)
+                console.error('Error adding warehouse:', error);
+            } else {
+                console.error('Error adding warehouse:', error);  
+        } 
+            
         }
+      };
+    
 
     return (
         <>
@@ -53,23 +67,23 @@ export function AddNewWarehouse() {
                         <h2 className='details__subheader'>Warehouse Details</h2>
                         
                         <div className='details__subcontainer'>
-                            <label htmlFor="location" className='details__label'>Warehouse Name</label>
-                            <input type='text' id="location" name="location" placeholder='Warehouse Name' className='details__input' onChange={(e) => setLocation(e.target.value)}></input>
+                            <label htmlFor="warehouse_name" className='details__label'>Warehouse Name</label>
+                            <input type='text' id="warehouse_name" name="warehouse_name" placeholder='Warehouse Name' className='details__input' value={warehouseData.warehouse_name} onChange={handleChange}></input>
                         </div>
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="street" className='details__label'>Street Address</label>
-                            <input type='text' id="street" name="street" placeholder='Street Address' className='details__input' onChange={(e) => setAddress(e.target.value)}></input>
+                            <label htmlFor="address" className='details__label'>Street Address</label>
+                            <input type='text' id="address" name="address" placeholder='Street Address' className='details__input' value={warehouseData.address} onChange={handleChange}></input>
                         </div>
 
                         <div className='details__subcontainer'>
                             <label htmlFor="city" className='details__label'>City</label>
-                            <input type='text' id="city" name="city" placeholder='City'  className='details__input' onChange={(e) => setCity(e.target.value)}></input>
+                            <input type='text' id="city" name="city" placeholder='City'  className='details__input' value={warehouseData.city} onChange={handleChange}></input>
                         </div>
 
                         <div className='details__subcontainer'>
                             <label htmlFor="country" className='details__label'>Country</label>
-                            <input type='text' id="country" name="country" placeholder='Country'  className='details__input' onChange={(e) => setCountry(e.target.value)}></input>
+                            <input type='text' id="country" name="country" placeholder='Country' className='details__input' value={warehouseData.country} onChange={handleChange}></input>
                         </div>    
 
                         </article>
@@ -81,30 +95,30 @@ export function AddNewWarehouse() {
                         <h2 className='details__subheader'>Contact Details</h2>
                         
                         <div className='details__subcontainer'>
-                            <label htmlFor="contact" className='details__label'>Contact Name</label>
-                            <input type='text' id="contact" name="contact" placeholder='contact' className='details__input' onChange={(e) => setContact(e.target.value)}></input>
+                            <label htmlFor="contact_name" className='details__label'>Contact Name</label>
+                            <input type='text' id="contact_name" name="contact_name" placeholder='contact' className='details__input' value={warehouseData.contact_name} onChange={handleChange}></input>
                         </div>    
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="position" className='details__label'>Position</label>
-                            <input type='text' id="position" name="position" placeholder='Position' className='details__input' onChange={(e) => setPosition(e.target.value)}></input>
+                            <label htmlFor="contact_position" className='details__label'>Position</label>
+                            <input type='text' id="contact_position" name="contact_position" placeholder='Position' className='details__input' value={warehouseData.contact_position} onChange={handleChange}></input>
                         </div>    
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="phone" className='details__label'>Phone Number</label>
-                            <input type='text' id="phone" name="phone" placeholder='Phone Number' className='details__input' onChange={(e) => setPhone(e.target.value)}></input>
+                            <label htmlFor="contact_phone" className='details__label'>Phone Number</label>
+                            <input type='text' id="contact_phone" name="contact_phone" placeholder='Phone Number' className='details__input' value={warehouseData.contact_phone} onChange={handleChange}></input>
                         </div>    
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="email" className='details__label'>Phone Number</label>
-                            <input type='email' id="email" name="email" placeholder='Email' className='details__input' onChange={(e) => setEmail(e.target.value)}></input>
+                            <label htmlFor="contact_email" className='details__label'>Email</label>
+                            <input type='text' id="contact_email" name="contact_email" placeholder='Email' className='details__input' value={warehouseData.contact_email} onChange={handleChange}></input>
                         </div>     
 
                     </article>
                     
                         <div className='button'>
                             <button className='button__cancel'>Cancel</button>
-                            <Link to='/'><button className='button__add'>Add Warehouse</button></Link>
+                            <button type='submit' className='button__add'>Add Warehouse</button>
                         </div>
 
                 </form>

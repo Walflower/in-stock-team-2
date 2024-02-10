@@ -31,7 +31,7 @@ export function Inventories() {
             <button></button>
          
           {!loading && inventoryList && inventoryList.length > 0 && (
-            <InventoryList inventoryList={inventoryList} />
+            <InventoryList inventoryList={inventoryList} isWarehouse = {false} warehouseId={null}/>
           )}
      
     </>

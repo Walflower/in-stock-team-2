@@ -5,7 +5,9 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 
 
-function InventoryList({inventoryList}) {
+function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
+
+
   return (
     <main>
       <div className="inventory-container">
@@ -48,6 +50,7 @@ function InventoryList({inventoryList}) {
                 </div>
               </li>
 
+              { isWarehouse &&(
               <li className="inventory__title-container">
                 <div className="inventory__title-wrapper">
                   <h4 className="inventory__title">WAREHOUSE</h4>
@@ -55,7 +58,7 @@ function InventoryList({inventoryList}) {
                 <div>
                   <img className="icon" src={sortIcon} alt="sort" />
                 </div>
-              </li>
+              </li>)}
 
               <li className="inventory__title-container">
                 <div className="inventory__title-wrapper">
@@ -87,9 +90,10 @@ function InventoryList({inventoryList}) {
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.quantity}</p>
               </li>
+              { isWarehouse &&(
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.warehouse_name}</p>
-              </li>
+              </li>)}
 
               <li className="inventory__info-tablet inventory__actions-tablet">
                 <div className="inventory__del-wrapper-tablet">
@@ -153,7 +157,7 @@ function InventoryList({inventoryList}) {
                       <p className="inventory__detail">500</p>
                     </div>
                   </li>
-
+                  { isWarehouse &&(
                   <li className="inventory__info">
                     <div className="inventory__header-wrapper">
                       <h4 className="inventory__header">WAREHOUSE</h4>
@@ -161,7 +165,7 @@ function InventoryList({inventoryList}) {
                     <div className="inventory__detail-wrapper">
                       <p className="inventory__detail">Manhattan</p>
                     </div>
-                  </li>
+                  </li>)}
                 </div>
               </ul>
 

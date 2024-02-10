@@ -2,16 +2,21 @@ import { useParams } from "react-router";
 import "./WarehouseDetails.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import InventoryList from "../InventoryList/InventoryList";
 
 export function WarehouseDetails() {
   const {warehouseId} = useParams();
 
   const { REACT_APP_API_BASE_PATH } = process.env;
   const [warehouse, setWarehouse] = useState([]);
+  const [warehouseInventoryList, setWarehouseInventoryList] = useState([]);
+
+
   const fetchWarehouse = async () => {
     try {
       // const res = await axios.get(`${REACT_APP_API_BASE_PATH}/inventories`);
       const res = await axios.get(`http://localhost:8080/warehouses/${warehouseId}`);
+      console.log("warehouse: ", res.data)
       setWarehouse(res.data);
     } catch (error) {
       console.error(error);
@@ -20,6 +25,20 @@ export function WarehouseDetails() {
   useEffect(() => {
     fetchWarehouse();
   }, []);
+
+  const fecthWarehouseInventoryList = async () =>{
+    try {
+      const res = await axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventories`);
+      setWarehouseInventoryList(res.data);
+      console.log("inventory of the warehouse: ", res.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    fecthWarehouseInventoryList();
+  }, []);
+
 
   return (
     <>
@@ -66,7 +85,7 @@ export function WarehouseDetails() {
         </ul>
       </section>
       </div>
-
+      <InventoryList inventoryList={warehouseInventoryList} isWarehouse = {true} warehouseId={warehouseId}/>
       
     </main>
     )}

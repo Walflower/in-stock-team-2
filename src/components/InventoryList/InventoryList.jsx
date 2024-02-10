@@ -6,7 +6,6 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 
 
 function InventoryList({inventoryList}) {
-  console.log("inside inventorylist component", inventoryList);
   return (
     <main>
       <div className="inventory-container">

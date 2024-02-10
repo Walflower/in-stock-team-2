@@ -10,7 +10,7 @@ export function EditInventory() {
 
     const { inventoryId } = useParams();
 
-    const baseURL = "http://localhost:8000"
+    const baseURL = "http://localhost:8080"
 
     useEffect(() => {
         const getData = async () => {

@@ -146,7 +146,7 @@ p {
         }
       }
     }
-    &-tag {
+    &-tag-in {
       @include tag__in--M;
       &-tablet {
         @include tablet {
@@ -154,7 +154,18 @@ p {
           width: 55%;
         }
       }
+      
     }
+    &-tag-out{
+
+        @include tag__out--M;
+        &-tablet {
+          @include tablet {
+            @include tag__in--DT;
+            width: 55%;
+          }
+    }
+  }
     &-content {
       display: flex;
       flex-direction: column;
@@ -166,6 +177,7 @@ p {
     flex-direction: column;
     gap: $pad--24;
     padding-bottom: $pad--16;
+    padding-top: $pad--16;
     border-bottom: 1px solid $secondary--cloud;
   }
 

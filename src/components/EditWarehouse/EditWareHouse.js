@@ -1,8 +1,8 @@
-import { useSearchParams } from 'react-router-dom'
-import './EditWarehouse.scss'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useSearchParams } from "react-router-dom";
+import "./EditWarehouse.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const EditWarehouse = ({warehouse, onUpdate}) => {
 

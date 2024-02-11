@@ -48,7 +48,7 @@ export function WarehouseDetails() {
     <main>
       <div className="top">
       <h1>{warehouse.warehouse_name}</h1>
-      <Link to={{pathname: `/${warehouseId}/edit`, state: {warehouse: warehouse}}}><button className="top__editbutton"><p className="top__text">Edit</p></button></Link>
+      <Link to={`/${warehouseId}/edit`}><button className="top__editbutton"><p className="top__text">Edit</p></button></Link>
       </div>
       
         <div className="container">

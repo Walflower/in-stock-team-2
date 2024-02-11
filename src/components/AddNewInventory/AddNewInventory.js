@@ -86,14 +86,13 @@ export function AddNewInventory() {
 
     setErrors({ ...errors, status: "" });
   };
-  //
+
   const handleQuantityChange = (e) => {
     const { value } = e.target;
     setInventoryData({ ...inventoryData, quantity: value });
     setErrors({ ...errors, quantity: "" });
   };
 
-  //
   const handleSelect = (name, option) => {
     let selectedOption = option;
 
@@ -115,11 +114,9 @@ export function AddNewInventory() {
         inventoryData.quantity = parseInt(inventoryData.quantity);
       }
 
-      // Validate the form data
       await inventoryValidationSchema.validate(inventoryData, {
         abortEarly: false,
       });
-      console.log(inventoryData); //remove
 
       const response = await axios.post(
         `http://localhost:8080/inventories`,
@@ -160,9 +157,9 @@ export function AddNewInventory() {
         </div>
       </section>
 
-      <section className="form">
-        <form onSubmit={handleSubmit}>
-          <article className="form__container">
+      <form onSubmit={handleSubmit}>
+        <section className="form">
+          <article className="form__container form__container--left">
             <h2 className="form__subheader">Item Details</h2>
 
             <div className="form__subcontainer">
@@ -276,15 +273,15 @@ export function AddNewInventory() {
               />
             </div>
           </article>
+        </section>
 
-          <div className="buttons">
-            <Link to="/inventory-list">
-              <button className="inventory__cancel">Cancel</button>
-            </Link>
-            <button className="inventory__add">Add Item</button>
-          </div>
-        </form>
-      </section>
+        <div className="buttons">
+          <Link to="/inventory-list">
+            <button className="inventory__cancel">Cancel</button>
+          </Link>
+          <button className="inventory__add">Add Item</button>
+        </div>
+      </form>
     </>
   );
 }

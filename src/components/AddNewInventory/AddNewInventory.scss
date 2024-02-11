@@ -51,15 +51,36 @@ br {
 }
 
 .form {
+  @include tablet {
+    display: flex;
+  }
+
+  &__container {
+    @include tablet {
+      margin-top: $pad--16;
+      margin-bottom: $pad--16;
+      width: 50%;
+    }
+    &--left {
+      border-right: 1px solid $secondary--cloud;
+    }
+  }
   &__subheader {
     padding-left: $pad--16;
-    padding-top: $pad--16;
+
+    @include tablet {
+      padding-left: $pad--32;
+    }
   }
 
   &__subcontainer {
     padding: $pad--16 $pad--16;
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      padding: $pad--16 $pad--32;
+    }
   }
 
   &__label {
@@ -79,6 +100,10 @@ br {
 .divider {
   width: 100%;
   border-bottom: 1px solid $secondary--cloud;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .radios {
@@ -94,14 +119,26 @@ br {
   display: flex;
   justify-content: space-evenly;
   background-color: $background--lightgrey;
+
+  @include tablet {
+    justify-content: flex-end;
+  }
 }
 
 .inventory__cancel {
   @include cta__secondary--DT;
   padding: 0 2.5rem;
+
+  @include tablet {
+    padding: 0 1rem;
+  }
 }
 
 .inventory__add {
   @include cta__primary--DT;
   padding: 0 2.5rem;
+  @include tablet {
+    padding: 0 1rem;
+    margin-left: 1.5rem;
+  }
 }

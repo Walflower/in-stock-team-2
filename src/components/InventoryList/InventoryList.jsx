@@ -3,10 +3,11 @@ import "./InventoryList.scss";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import { Link } from "react-router-dom";
+
+function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
 
 
-function InventoryList({inventoryList}) {
-  console.log("inside inventorylist component", inventoryList);
   return (
     <main>
       <div className="inventory-container">
@@ -49,6 +50,7 @@ function InventoryList({inventoryList}) {
                 </div>
               </li>
 
+              { !isWarehouse &&(
               <li className="inventory__title-container">
                 <div className="inventory__title-wrapper">
                   <h4 className="inventory__title">WAREHOUSE</h4>
@@ -56,7 +58,7 @@ function InventoryList({inventoryList}) {
                 <div>
                   <img className="icon" src={sortIcon} alt="sort" />
                 </div>
-              </li>
+              </li>)}
 
               <li className="inventory__title-container">
                 <div className="inventory__title-wrapper">
@@ -71,38 +73,41 @@ function InventoryList({inventoryList}) {
             {inventoryList.map((inventory) => {
               return(<ul key={inventory.id} className="inventory__row-tablet inventory__item-tablet">
               <li className="inventory__info-tablet">
-                <p className="inventory__detail-tablet inventory__detail--link-tablet">
+                <Link to={`/inventory-list/:${inventory.id}`} className="inventory__detail-tablet inventory__detail--link-tablet">
                   {inventory.item_name}
-                </p>
+                </Link>
               </li>
 
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.category}</p>
               </li>
               <li className="inventory__info-tablet inventory__info-tag-tablet">
-                <p className="inventory__detail-tablet inventory__detail-tag-tablet">
+              
+                <p className={`inventory__detail-tablet inventory__detail-tag-tablet 
+                      ${inventory.status.toLowerCase() === "in stock" ? "inventory__detail-tag-in" : "inventory__detail-tag-out"}`}>
                   {inventory.status}
-                </p>
+                      </p>
               </li>
 
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.quantity}</p>
               </li>
+              { !isWarehouse &&(
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.warehouse_name}</p>
-              </li>
+              </li>)}
 
               <li className="inventory__info-tablet inventory__actions-tablet">
-                <div className="inventory__del-wrapper-tablet">
+                <Link  to={`/inventory-list/${inventory.id}/delete-item`}  className="inventory__del-wrapper-tablet">
                   <img
                     className="invenory__del-tablet"
                     src={deleteIcon}
                     alt="drop down"
                   />
-                </div>
-                <div className="inventory__edit-wrapper-tablet">
+                </Link>
+                <Link  to={`/inventory-list/${inventory.id}/edit`}  className="inventory__edit-wrapper-tablet">
                   <img className="invenory__edit-tablet" src={editIcon} />
-                </div>
+                </Link>
               </li>
             </ul>
             );
@@ -110,7 +115,8 @@ function InventoryList({inventoryList}) {
           </div>
           {/* mobile */}
           <div className="inventory__container">
-            <section className="inventory__list">
+          {inventoryList.map((inventory) => {
+            return (<section key={inventory.id} className="inventory__list">
               <ul className="inventory__item">
                 <div className="inventory__left">
                   <li className="inventory__info">
@@ -118,9 +124,9 @@ function InventoryList({inventoryList}) {
                       <h4 className="inventory__header">INVENTORY ITEM</h4>
                     </div>
                     <div className="inventory__detail-content">
-                      <p className="inventory__detail inventory__detail--link">
-                        Television
-                      </p>
+                    <Link to={`/inventory-list/:${inventory.id}`}  className="inventory__detail inventory__detail--link">
+                      {inventory.item_name}
+                      </Link>
                     </div>
                   </li>
 
@@ -129,7 +135,7 @@ function InventoryList({inventoryList}) {
                       <h4 className="inventory__header">CATEGORY</h4>
                     </div>
                     <div className="inventory__detail-wrapper">
-                      <p className="inventory__detail">Electronics</p>
+                      <p className="inventory__detail">{inventory.category}</p>
                     </div>
                   </li>
                 </div>
@@ -140,8 +146,10 @@ function InventoryList({inventoryList}) {
                       <h4 className="inventory__header">STATUS</h4>
                     </div>
                     <div className="inventory__detail-wrapper">
-                      <p className="inventory__detail   inventory__detail-tag">
-                        IN STOCK
+                      
+                      <p className={`inventory__detail inventory__detail-tag 
+                      ${inventory.status.toLowerCase() === "in stock" ? "inventory__detail-tag-in" : "inventory__detail-tag-out"}`}>
+                  {inventory.status}
                       </p>
                     </div>
                   </li>
@@ -151,34 +159,36 @@ function InventoryList({inventoryList}) {
                       <h4 className="inventory__header">QTY</h4>
                     </div>
                     <div className="inventory__detail-wrapper">
-                      <p className="inventory__detail">500</p>
+                      <p className="inventory__detail">{inventory.quantity}</p>
                     </div>
                   </li>
-
+                  { !isWarehouse &&(
                   <li className="inventory__info">
                     <div className="inventory__header-wrapper">
                       <h4 className="inventory__header">WAREHOUSE</h4>
                     </div>
                     <div className="inventory__detail-wrapper">
-                      <p className="inventory__detail">Manhattan</p>
+                      <p className="inventory__detail">{inventory.warehouse_name}</p>
                     </div>
-                  </li>
+                  </li>)}
                 </div>
               </ul>
 
               <div className="inventory__actions">
-                <div className="inventory__del-wrapper">
+                <Link  to={`/inventory-list/${inventory.id}/delete-item`} className="inventory__del-wrapper">
                   <img
                     className="invenory__del"
                     src={deleteIcon}
                     alt="drop down"
                   />
-                </div>
-                <div className="inventory__edit-wrapper">
+                </Link>
+                <Link to={`/inventory-list/${inventory.id}/edit`} className="inventory__edit-wrapper">
                   <img className="invenory__edit" src={editIcon} />
-                </div>
+                </Link>
               </div>
             </section>
+             );
+            })}
           </div>
         </div>
       </div>

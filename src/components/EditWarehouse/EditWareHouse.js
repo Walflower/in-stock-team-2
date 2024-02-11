@@ -9,7 +9,7 @@ export function EditWarehouse() {
     const { warehouseId } = useParams();
     
     // ADD NEW WAEHOUSE 
-    const REACT_APP_BASE_URL = "http://localhost:8000"
+    const REACT_APP_BASE_URL = "http://localhost:8080"
 
     const [location, setLocation] = useState('')
     const [address, setAddress] = useState('')

@@ -218,6 +218,7 @@ export function AddNewInventory() {
               <section className="radios">
                 <label className="radios__label radios__label--start">
                   <input
+                    className="radios__button"
                     name="status"
                     type="radio"
                     value="In Stock"
@@ -229,6 +230,7 @@ export function AddNewInventory() {
 
                 <label className="radios__label">
                   <input
+                    className="radios__button"
                     name="status"
                     type="radio"
                     value="Out of Stock"

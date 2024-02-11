@@ -112,6 +112,10 @@ br {
       margin-right: $pad--80;
     }
   }
+
+  &__button {
+    margin-right: 0.5rem;
+  }
 }
 
 .buttons {

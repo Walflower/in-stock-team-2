@@ -4,46 +4,46 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
-export function EditWarehouse() {
+export function EditWarehouse({warehouseId}) {
 
-    const { warehouseId } = useParams();
-    
-    // ADD NEW WAEHOUSE 
-    const REACT_APP_BASE_URL = "http://localhost:8000"
+    const [editWarehouse, setEditWarehouse] = useState({
+        warehouse_name: '',
+        address: '',
+        city: '',
+        country: '',
+        contact_name: '',
+        contact_position: '',
+        contact_phone: '',
+        contact_email: '',
+    })
 
-    const [location, setLocation] = useState('')
-    const [address, setAddress] = useState('')
-    const [city, setCity] = useState('')
-    const [country, setCountry] = useState('')
-    const [contact, setContact] = useState('')
-    const [position, setPosition] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    // POST new data api
-    const postData = () => {
-        axios.post(`${REACT_APP_BASE_URL}/warehouses`, 
-        location,
-        address,
-        city,
-        country,
-        contact,
-        position,
-        phone,
-        email)
+    useEffect(() => {
+        const getWarehouseData = async () => {
+            try{
+                const response = await axios.get(`http://localhost:8080/warehouses/${warehouseId}`)
+                setEditWarehouse(response.data)
+            } catch (error) {
+                console.error('Error fetching warehouse details for EditWarehouse: ', error)
+            }
         }
-    // SET/UPDATE new data to warehouses page (add to warehouse list)
-    // const updateData = () => {
-    //     axios.put(`${REACT_APP_BASE_URL}/warehouses/${id}`)
-    //     const {location, address, city, country, contact, position, phone, email} = data
-    // }
+        getWarehouseData()
+    }, [warehouseId])
 
-    // const [id, setId] = useState(null)
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setEditWarehouse({...editWarehouse, [name]: value})
+    }
 
-    // useEffect(() => {
-        
-    // })
-
-    console.log(postData.data)
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            await axios.put(`http://localhost:8080/warehouses/${warehouseId}`, editWarehouse)
+            alert("Warehouse details updated successfully!")
+        } catch (error) {
+            console.error("Error updating warehouse details:", error)
+            alert("Failed to update warehouse details, Please try again.")
+        }
+    }
     
     return (
         <>
@@ -51,7 +51,7 @@ export function EditWarehouse() {
 
             <section className='details'>
 
-                <form id='details__form'>
+                <form onSubmit={handleSubmit} id='details__form'>
 
                     <article className='details__container'>
 
@@ -59,22 +59,22 @@ export function EditWarehouse() {
                         
                         <div className='details__subcontainer'>
                             <label htmlFor="location" className='details__label'>Warehouse Name</label>
-                            <input className='details__input' type='text' id="location" name="location" placeholder='Washington' onChange={(e) => setLocation(e.target.value)}></input>
+                            <input className='details__input' type='text' id="location" name="location" placeholder='Washington' value={editWarehouse.warehouse_name} onChange={handleChange}></input>
                         </div>
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="street" className='details__label'>Street Address</label>
-                            <input className='details__input' type='text' id="street" name="street" placeholder='300 Pearl Street SW' onChange={(e) => setAddress(e.target.value)}></input>
+                            <label htmlFor="address" className='details__label'>Street Address</label>
+                            <input className='details__input' type='text' id="address" name="address" placeholder='300 Pearl Street SW' value={editWarehouse.address} onChange={handleChange}></input>
                         </div>
 
                         <div className='details__subcontainer'>
                             <label htmlFor="city" className='details__label'>City</label>
-                            <input type='text' id="city" name="city" placeholder='Washington'  className='details__input' onChange={(e) => setCity(e.target.value)}></input>
+                            <input type='text' id="city" name="city" placeholder='Washington'  className='details__input' value={editWarehouse.city} onChange={handleChange}></input>
                         </div>
 
                         <div className='details__subcontainer'>
                             <label htmlFor="country" className='details__label'>Country</label>
-                            <input type='text' id="country" name="country" placeholder='USA'  className='details__input' onChange={(e) => setCountry(e.target.value)}></input>
+                            <input type='text' id="country" name="country" placeholder='USA'  className='details__input' value={editWarehouse.country} onChange={handleChange}></input>
                         </div>    
 
                         </article>
@@ -86,31 +86,31 @@ export function EditWarehouse() {
                         <h2 className='details__subheader'>Contact Details</h2>
                         
                         <div className='details__subcontainer'>
-                            <label htmlFor="name" className='details__label'>Contact Name</label>
-                            <input type='text' id="name" name="name" placeholder='Graeme Lyon' className='details__input' onChange={(e) => setContact(e.target.value)}></input>
+                            <label htmlFor="contact_name" className='details__label'>Contact Name</label>
+                            <input type='text' id="contact_name" name="contact_name" placeholder='Graeme Lyon' className='details__input' value={editWarehouse.contact_name} onChange={handleChange}></input>
                         </div>    
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="position" className='details__label'>Position</label>
-                            <input type='text' id="position" name="position" placeholder='Warehouse Manager' className='details__input' onChange={(e) => setPosition(e.target.value)}></input>
+                            <label htmlFor="contact_position" className='details__label'>Position</label>
+                            <input type='text' id="contact_position" name="contact_position" placeholder='Warehouse Manager' className='details__input' value={editWarehouse.contact_position} onChange={handleChange}></input>
                         </div>    
 
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="phone" className='details__label'>Phone Number</label>
-                            <input type='number' id="phone" name="phone" placeholder='+1 (647) 504-0911' className='details__input' onChange={(e) => setPhone(e.target.value)}></input>
+                            <label htmlFor="contact_phone" className='details__label'>Phone Number</label>
+                            <input type='text' id="phcontact_phoneone" name="contact_phone" placeholder='+1 (647) 504-0911' className='details__input' value={editWarehouse.contact_phone} onChange={handleChange}></input>
                         </div>    
 
                         <div className='details__subcontainer'>
-                            <label htmlFor="email" className='details__label'>Email</label>
-                            <input type='email' id="email" name="email" placeholder='glyon@instock.com' className='details__input' onChange={(e) => setEmail(e.target.value)}></input>
+                            <label htmlFor="contact_email" className='details__label'>Email</label>
+                            <input type='text' id="contact_email" name="contact_email" placeholder='glyon@instock.com' className='details__input' value={editWarehouse.contact_email} onChange={handleChange}></input>
                         </div>     
 
                     </article>
                     
                         <div className='button'>
                                 {/* <Link to='/'><button className='button__save' onClick={postData}>Save</button></Link> */}
-                                <button className='button__save' onClick={() => postData()}>Save</button>
+                                <button className='button__save'>Save</button>
                                 <button className='button__cancel'>Cancel</button>
                         </div>
 

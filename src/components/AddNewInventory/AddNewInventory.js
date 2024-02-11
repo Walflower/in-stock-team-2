@@ -53,7 +53,7 @@ export function AddNewInventory() {
       );
       if (inventoryResponse.status === 200) {
         const inventoryCategories = new Set();
-        inventoryResponse.foreach((inventory) => {
+        inventoryResponse.data.forEach((inventory) => {
           inventoryCategories.add(inventory.category);
         });
         setCategoryList(Array.from(inventoryCategories));
@@ -67,10 +67,12 @@ export function AddNewInventory() {
     getDropDown();
   }, []);
 
-  const handleRadioChange = (e) => {
-    const { name, value } = e.target;
-    setInventoryData({ ...inventoryData, [name]: value });
-    setErrors({ ...errors, [name]: "" });
+  const handleRadioChange = (value) => {
+    setInventoryData({ ...inventoryData, status: value });
+
+    setShowQuantityInput(value === "Out of Stock");
+
+    setErrors({ ...errors, status: "" });
   };
 
   const handleSelect = (op) => {
@@ -149,7 +151,7 @@ export function AddNewInventory() {
                 Description
               </label>
               <input
-                labelText="Category"
+                // labelText="Category"
                 type="text"
                 id="description"
                 name="description"
@@ -159,13 +161,12 @@ export function AddNewInventory() {
             </div>
 
             <div className="details__subcontainer">
-              {/* <label htmlFor="category" className="details__label">
+              <label htmlFor="category" className="details__label">
                 Category
-              </label> */}
+              </label>
               {/**new a drop down menu here */}
               <Dropdown
                 name="category"
-                labelText="Category"
                 placeholder="Please select"
                 onSelect={handleSelect}
                 error={errors.category}
@@ -180,40 +181,64 @@ export function AddNewInventory() {
             <h2 className="details__subheader">Item Availability</h2>
 
             <div className="details__subcontainer">
-              <label htmlFor="status" className="details__label">
-                Status
-              </label>
-              <input
-                type="radio"
-                id="in-stock"
-                name="status"
-                className="details__input"
-              ></input>
-              <input
-                type="radio"
-                id="out-of-stock"
-                name="status"
-                className="details__input"
-              ></input>
+              <article className="form__stockSection">
+                <h3 className="form__stockSection-title">Status</h3>
+                <div className="form__stockSection-wrapper">
+                  <label className="in-stock">
+                    <input
+                      name="status"
+                      type="radio"
+                      value="In Stock"
+                      checked={!showQuantityInput}
+                      onChange={() => handleRadioChange("In Stock")}
+                    />
+                    In stock
+                  </label>
+                  <label className="out-of-stock">
+                    <input
+                      name="status"
+                      type="radio"
+                      value="Out of Stock"
+                      checked={showQuantityInput}
+                      onChange={() => handleRadioChange("Out of Stock")}
+                    />
+                    Out of stock
+                  </label>
+                </div>
+              </article>
+
+              {!showQuantityInput && (
+                <>
+                  <label htmlFor="quantity">Quantity</label>
+                  <input
+                    type="number"
+                    placeholder="Quantity"
+                    name="quantity"
+                    value={inventoryData.quantity}
+                    onChange={handleRadioChange}
+                    error={errors.quantity}
+                  />
+                </>
+              )}
             </div>
 
-            {/**Need drop down for warehouse Quantity and Warehouse. the value of warehouse need to go with the warehouse id */}
             <div className="details__subcontainer">
-              {/* <select className="">
-                {warehouseList?.map((warehouse, index) => {
-                  return (
-                    <option
-                      className=""
-                      key={warehouse.id}
-                      value={warehouse.id}
-                    >
-                      {warehouse.warehouse_name}
-                    </option>
-                  );
-                })}
-              </select> */}
+              <label htmlFor="category" className="details__label">
+                Warehouse
+              </label>
+
+              <Dropdown
+                name="warehouse_id"
+                placeholder="Please select"
+                onSelect={handleSelect}
+                error={errors.warehouse_id}
+                options={warehouseList?.map(
+                  (warehouse) => warehouse.warehouse_name
+                )}
+              />
             </div>
           </article>
+
           {/**checkout the button mixins */}
           <div className="button">
             <button className="button__save">Cancel</button>

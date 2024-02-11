@@ -1,20 +1,21 @@
 import { useState } from "react";
+import Dropdown from "react-dropdown";
 import "./DropDown.scss";
 
-export default function Dropdown(props) {
-  const { name, options, onSelect, error, labelText, placeholder } = props;
+export default function DropDown(props) {
+  const { name, options, onSelect, error, placeholder } = props;
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOptionSelect = (option) => {
-    setSelectedOption({ [name]: option });
+    setSelectedOption(option);
     onSelect({ name, option });
     setIsOpen(false);
   };
+  //from dropdown
 
   return (
     <div className="dropdown">
-      <label className="dropdown__label">{labelText}</label>
       <div className="dropdown__input" onClick={() => setIsOpen(!isOpen)}>
         {selectedOption ? (
           <span className="dropdown__selected">{selectedOption[name]}</span>

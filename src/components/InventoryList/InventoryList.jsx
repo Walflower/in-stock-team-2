@@ -98,16 +98,16 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
               </li>)}
 
               <li className="inventory__info-tablet inventory__actions-tablet">
-                <div className="inventory__del-wrapper-tablet">
+                <Link  to={`/inventory-list/${inventory.id}/delete-item`}  className="inventory__del-wrapper-tablet">
                   <img
                     className="invenory__del-tablet"
                     src={deleteIcon}
                     alt="drop down"
                   />
-                </div>
-                <div className="inventory__edit-wrapper-tablet">
+                </Link>
+                <Link  to={`/inventory-list/${inventory.id}/edit`}  className="inventory__edit-wrapper-tablet">
                   <img className="invenory__edit-tablet" src={editIcon} />
-                </div>
+                </Link>
               </li>
             </ul>
             );
@@ -175,16 +175,16 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
               </ul>
 
               <div className="inventory__actions">
-                <div className="inventory__del-wrapper">
+                <Link  to={`/inventory-list/${inventory.id}/delete-item`} className="inventory__del-wrapper">
                   <img
                     className="invenory__del"
                     src={deleteIcon}
                     alt="drop down"
                   />
-                </div>
-                <div className="inventory__edit-wrapper">
+                </Link>
+                <Link to={`/inventory-list/${inventory.id}/edit`} className="inventory__edit-wrapper">
                   <img className="invenory__edit" src={editIcon} />
-                </div>
+                </Link>
               </div>
             </section>
              );

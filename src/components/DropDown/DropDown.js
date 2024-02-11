@@ -12,7 +12,7 @@ export default function DropDown(props) {
     setIsOpen(false);
   };
   //from dropdown
-
+// <option value="" disabled selected hidden>Please Select</option>
   return (
     <div className="dropdown">
       <div className="dropdown__input" onClick={() => setIsOpen(!isOpen)}>

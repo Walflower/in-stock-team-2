@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./WarehouseDetails.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -45,11 +46,11 @@ export function WarehouseDetails() {
     {warehouseId  && (
     
     <main>
-      <div>
-        <h1>
-          {warehouse.warehouse_name}
-        </h1>
+      <div className="top">
+      <h1>{warehouse.warehouse_name}</h1>
+      <Link to={`/${warehouseId}/edit`}><button className="top__editbutton"><p className="top__text">Edit</p></button></Link>
       </div>
+      
         <div className="container">
       <section className="warehouse">
         <div className="warehouse__left info">

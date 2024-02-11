@@ -9,6 +9,35 @@ p {
   font-size: $size__p2--DT;
 }
 
+.top {
+  height: 5.816rem;
+  display: flex;
+
+  &__editbutton {
+    @include cta__primary--M;
+
+    background-image: url(../../assets/icons/edit-24px.svg);
+
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 8px;
+
+    &:hover {
+      @include cta__primary--hover;
+    }
+    @include tablet {
+      @include cta__primary--DT;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include tablet {
+      display: unset;
+    }
+  }
+}
 .container {
   color: $primary--black;
   border-top: 1px $secondary--cloud solid;

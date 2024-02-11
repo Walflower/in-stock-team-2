@@ -247,7 +247,7 @@ export function AddNewInventory() {
               <label htmlFor="category" className="details__label">
                 Warehouse
               </label>
-
+             
               <Dropdown
                 name="warehouse_id"
                 placeholder="Please select"

@@ -82,9 +82,11 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
                 <p className="inventory__detail-tablet">{inventory.category}</p>
               </li>
               <li className="inventory__info-tablet inventory__info-tag-tablet">
-                <p className="inventory__detail-tablet inventory__detail-tag-tablet">
+              
+                <p className={`inventory__detail-tablet inventory__detail-tag-tablet 
+                      ${inventory.status.toLowerCase() === "in stock" ? "inventory__detail-tag-in" : "inventory__detail-tag-out"}`}>
                   {inventory.status}
-                </p>
+                      </p>
               </li>
 
               <li className="inventory__info-tablet">
@@ -144,8 +146,10 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
                       <h4 className="inventory__header">STATUS</h4>
                     </div>
                     <div className="inventory__detail-wrapper">
-                      <p className="inventory__detail   inventory__detail-tag">
-                      {inventory.status}
+                      
+                      <p className={`inventory__detail inventory__detail-tag 
+                      ${inventory.status.toLowerCase() === "in stock" ? "inventory__detail-tag-in" : "inventory__detail-tag-out"}`}>
+                  {inventory.status}
                       </p>
                     </div>
                   </li>

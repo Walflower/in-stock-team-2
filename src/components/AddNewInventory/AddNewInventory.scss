@@ -1,0 +1,28 @@
+@use "../../styles/partials/index" as *;
+
+.inventory__add {
+  @include cta__primary--M;
+
+  &:hover {
+    @include cta__primary--hover;
+  }
+
+  @include tablet {
+    @include cta__primary--DT;
+  }
+}
+
+.inventory__cancel {
+  @include cta__secondary--M;
+
+  &:hover {
+    @include cta__secondary--hover;
+  }
+  @include tablet {
+    @include cta__secondary--DT;
+  }
+}
+
+.top__addinventory {
+  display: flex;
+}

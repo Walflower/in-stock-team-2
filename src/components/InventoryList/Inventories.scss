@@ -1,0 +1,22 @@
+@use "../../styles/partials/index" as *;
+
+.inventorylist__box {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  @include tablet {
+    flex-direction: row;
+    height: 5.816rem;
+    align-items: center;
+  }
+}
+.inventorylist__add {
+  @include cta__primary--DT;
+  width: 100%;
+
+  @include tablet {
+    width: unset;
+  }
+}

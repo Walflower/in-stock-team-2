@@ -82,9 +82,11 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
                 <p className="inventory__detail-tablet">{inventory.category}</p>
               </li>
               <li className="inventory__info-tablet inventory__info-tag-tablet">
-                <p className="inventory__detail-tablet inventory__detail-tag-tablet">
+              
+                <p className={`inventory__detail-tablet inventory__detail-tag-tablet 
+                      ${inventory.status.toLowerCase() === "in stock" ? "inventory__detail-tag-in" : "inventory__detail-tag-out"}`}>
                   {inventory.status}
-                </p>
+                      </p>
               </li>
 
               <li className="inventory__info-tablet">
@@ -96,16 +98,16 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
               </li>)}
 
               <li className="inventory__info-tablet inventory__actions-tablet">
-                <div className="inventory__del-wrapper-tablet">
+                <Link  to={`/inventory-list/${inventory.id}/delete-item`}  className="inventory__del-wrapper-tablet">
                   <img
                     className="invenory__del-tablet"
                     src={deleteIcon}
                     alt="drop down"
                   />
-                </div>
-                <div className="inventory__edit-wrapper-tablet">
+                </Link>
+                <Link  to={`/inventory-list/${inventory.id}/edit`}  className="inventory__edit-wrapper-tablet">
                   <img className="invenory__edit-tablet" src={editIcon} />
-                </div>
+                </Link>
               </li>
             </ul>
             );
@@ -144,8 +146,10 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
                       <h4 className="inventory__header">STATUS</h4>
                     </div>
                     <div className="inventory__detail-wrapper">
-                      <p className="inventory__detail   inventory__detail-tag">
-                      {inventory.status}
+                      
+                      <p className={`inventory__detail inventory__detail-tag 
+                      ${inventory.status.toLowerCase() === "in stock" ? "inventory__detail-tag-in" : "inventory__detail-tag-out"}`}>
+                  {inventory.status}
                       </p>
                     </div>
                   </li>
@@ -171,16 +175,16 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
               </ul>
 
               <div className="inventory__actions">
-                <div className="inventory__del-wrapper">
+                <Link  to={`/inventory-list/${inventory.id}/delete-item`} className="inventory__del-wrapper">
                   <img
                     className="invenory__del"
                     src={deleteIcon}
                     alt="drop down"
                   />
-                </div>
-                <div className="inventory__edit-wrapper">
+                </Link>
+                <Link to={`/inventory-list/${inventory.id}/edit`} className="inventory__edit-wrapper">
                   <img className="invenory__edit" src={editIcon} />
-                </div>
+                </Link>
               </div>
             </section>
              );

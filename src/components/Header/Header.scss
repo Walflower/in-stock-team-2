@@ -2,11 +2,15 @@
 
 .header {
   background-color: $background--graphite;
-  height: 15vh;
+  height: 12.5rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+  @include tablet {
+    height: 11.625rem;
+  }
 
   &__nav {
     width: 100%;
@@ -31,7 +35,9 @@
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      max-width: 1042px;
+      padding-left: unset;
+      padding-right: unset;
+      max-width: 1280px;
     }
   }
 

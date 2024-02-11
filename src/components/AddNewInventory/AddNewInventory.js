@@ -1,9 +1,5 @@
-import "./AddNewInventory.scss"
+import "./AddNewInventory.scss";
 
 export function AddNewInventory() {
-    return (
-        <>
-            
-        </>
-    )
+  return <></>;
 }

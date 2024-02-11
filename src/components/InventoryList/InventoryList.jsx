@@ -90,7 +90,7 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.quantity}</p>
               </li>
-              { isWarehouse &&(
+              { !isWarehouse &&(
               <li className="inventory__info-tablet">
                 <p className="inventory__detail-tablet">{inventory.warehouse_name}</p>
               </li>)}

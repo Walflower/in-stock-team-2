@@ -45,7 +45,11 @@ export function WarehouseDetails() {
     {warehouseId  && (
     
     <main>
-      <h2> WAREHOUSE INEVENTORY LIST placeholder</h2>
+      <div>
+        <h1>
+          {warehouse.warehouse_name}
+        </h1>
+      </div>
         <div className="container">
       <section className="warehouse">
         <div className="warehouse__left info">

@@ -42,7 +42,7 @@ export const InventoryItemDetails = ({inventoryId}) => {
   return (
     <>
       <h1 className="">{item.item_name}</h1>
-      <Link to={`/inventory-list/${inventoryId}/edit`}><img className="" src={edit} alt="">{}</img></Link>
+      <Link to={`/inventory-list/${inventoryId}/edit`}><button><img className="" src={edit} alt="">{}</img></button></Link>
 
       <div className="">
         <div className="">

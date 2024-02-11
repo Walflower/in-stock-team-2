@@ -1,5 +1,5 @@
 // this will be the main inventory list
-// import "./Inventories.scss";
+import "./Inventories.scss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -27,11 +27,13 @@ export function Inventories() {
 
   return (
     <>
-            <h1>Iventory List</h1>
+          <div className="inventorylist__box">
+            <h1 className="inventorylist__title">Iventory List</h1>
             <input></input>
             <Link to="/inventory-list/add">
               <button className="inventorylist__add">Add New Item</button>
             </Link>
+            </div>
          
           {!loading && inventoryList && inventoryList.length > 0 && (
             <InventoryList inventoryList={inventoryList} isWarehouse = {false} warehouseId={null}/>

@@ -9,15 +9,27 @@ p {
   font-size: $size__p2--DT;
 }
 
+h1 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+
+  @include tablet {
+    font-size: 2 rem;
+  }
+}
+
 .top {
   height: 5.816rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: $secondary--cloud 1px solid;
 
   &__editbutton {
     @include cta__primary--M;
 
     background-image: url(../../assets/icons/edit-24px.svg);
-
+    //Image is the same color as the background TODO
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 8px;

@@ -73,7 +73,7 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
             {inventoryList.map((inventory) => {
               return(<ul key={inventory.id} className="inventory__row-tablet inventory__item-tablet">
               <li className="inventory__info-tablet">
-                <Link to={`/inventory-list/:${inventory.id}`} className="inventory__detail-tablet inventory__detail--link-tablet">
+                <Link to={`/inventory-list/${inventory.id}`} className="inventory__detail-tablet inventory__detail--link-tablet">
                   {inventory.item_name}
                 </Link>
               </li>
@@ -124,7 +124,7 @@ function InventoryList({inventoryList, isWarehouse, WarehouseId}) {
                       <h4 className="inventory__header">INVENTORY ITEM</h4>
                     </div>
                     <div className="inventory__detail-content">
-                    <Link to={`/inventory-list/:${inventory.id}`}  className="inventory__detail inventory__detail--link">
+                    <Link to={`/inventory-list/${inventory.id}`}  className="inventory__detail inventory__detail--link">
                       {inventory.item_name}
                       </Link>
                     </div>

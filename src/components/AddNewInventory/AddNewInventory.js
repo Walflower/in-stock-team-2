@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./AddNewInventory.scss";
 import * as yup from "yup";
 import Dropdown from "../DropDown/DropDown";
+import Arrow from "../../assets/icons/arrow_back-24px.svg";
 
 export function AddNewInventory() {
   const initialState = {
@@ -22,6 +23,7 @@ export function AddNewInventory() {
   const [showQuantityInput, setShowQuantityInput] = useState(false);
 
   const navigate = useNavigate();
+  const [showNotification, setShowNotification] = useState(false);
 
   const inventoryValidationSchema = yup.object().shape({
     warehouse_id: yup.string().required("Warehouse name is required"),
@@ -127,6 +129,7 @@ export function AddNewInventory() {
       if (response.status === 201) {
         setInventoryData(initialState);
         alert("Inventory was added successfully!");
+        navigate("/inventory-list");
       }
     } catch (err) {
       if (err.name === "ValidationError") {
@@ -144,8 +147,16 @@ export function AddNewInventory() {
 
   return (
     <>
-      <h1 className="add__inventory">ADD NEW Inventory Item</h1>
-
+      <div className="top top__addinventory">
+        <Link to="/inventory-list">
+          <img src={Arrow} alt="back arrow" />
+        </Link>
+        <h1 className="add__inventory">
+          ADD NEW Inventory
+          <br />
+          Item
+        </h1>
+      </div>
       <section className="details">
         <form className="details__form" onSubmit={handleSubmit}>
           <article className="details__container">

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./AddNewInventory.scss";
 import * as yup from "yup";
 import Dropdown from "../DropDown/DropDown";
+import { AddButton } from "../AddButton/AddButton";
 
 export function AddNewInventory() {
   const initialState = {
@@ -67,6 +68,16 @@ export function AddNewInventory() {
     getDropDown();
   }, []);
 
+  const handleItemNameChange = (e) => {
+    const { value } = e.target;
+    setInventoryData({ ...inventoryData, item_name: value });
+  };
+
+  const handleDescriptionChange = (e) => {
+    const { value } = e.target;
+    setInventoryData({ ...inventoryData, description: value });
+  };
+
   const handleRadioChange = (value) => {
     setInventoryData({ ...inventoryData, status: value });
 
@@ -74,7 +85,14 @@ export function AddNewInventory() {
 
     setErrors({ ...errors, status: "" });
   };
+  //
+  const handleQuantityChange = (e) => {
+    const { value } = e.target;
+    setInventoryData({ ...inventoryData, quantity: value });
+    setErrors({ ...errors, quantity: "" });
+  };
 
+  //
   const handleSelect = (op) => {
     let { name, option } = op;
 
@@ -90,15 +108,17 @@ export function AddNewInventory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Making sure that quantity is 0 when inventory status is out of stock.
       if (inventoryData.status === "Out of Stock") {
         inventoryData.quantity = "0";
+      } else {
+        inventoryData.quantity = parseInt(inventoryData.quantity);
       }
 
       // Validate the form data
       await inventoryValidationSchema.validate(inventoryData, {
         abortEarly: false,
       });
+      console.log(inventoryData); //remove
 
       const response = await axios.post(
         `http://localhost:8080/inventories`,
@@ -111,7 +131,6 @@ export function AddNewInventory() {
       }
     } catch (err) {
       if (err.name === "ValidationError") {
-        // Setting errors, if form input is invalid:
         const validationErrors = {};
         err.inner.forEach((error) => {
           validationErrors[error.path] = error.message;
@@ -129,7 +148,7 @@ export function AddNewInventory() {
       <h1 className="add__inventory">ADD NEW Inventory Item</h1>
 
       <section className="details">
-        <form className="details__form">
+        <form className="details__form" onSubmit={handleSubmit}>
           <article className="details__container">
             <h2 className="details__subheader">Item Details</h2>
 
@@ -143,6 +162,8 @@ export function AddNewInventory() {
                 name="item"
                 placeholder="Item Name"
                 className="details__input"
+                value={inventoryData.item_name}
+                onChange={handleItemNameChange}
               ></input>
             </div>
 
@@ -151,12 +172,13 @@ export function AddNewInventory() {
                 Description
               </label>
               <input
-                // labelText="Category"
                 type="text"
                 id="description"
                 name="description"
                 placeholder="Please enter a brief item description"
                 className="details__input"
+                value={inventoryData.description}
+                onChange={handleDescriptionChange}
               ></input>
             </div>
 
@@ -164,7 +186,7 @@ export function AddNewInventory() {
               <label htmlFor="category" className="details__label">
                 Category
               </label>
-              {/**new a drop down menu here */}
+
               <Dropdown
                 name="category"
                 placeholder="Please select"
@@ -215,7 +237,7 @@ export function AddNewInventory() {
                     placeholder="Quantity"
                     name="quantity"
                     value={inventoryData.quantity}
-                    onChange={handleRadioChange}
+                    onChange={handleQuantityChange}
                     error={errors.quantity}
                   />
                 </>
@@ -241,8 +263,8 @@ export function AddNewInventory() {
 
           {/**checkout the button mixins */}
           <div className="button">
-            <button className="button__save">Cancel</button>
-            <button className="button__cancel">+Add Item</button>
+            <button className="inventory__cancel">Cancel</button>
+            <button className="inventory__add">Add Item</button>
           </div>
         </form>
       </section>

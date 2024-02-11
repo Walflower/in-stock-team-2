@@ -20,40 +20,13 @@
     }
   }
 
+  //this is the drop down
+  // need to align text inside
   &__input {
-    border-radius: 20px;
-    border: 1px solid $secondary--cloud;
-    color: $primary--black;
-    background-color: $primary--white;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 20px;
-    width: 100%;
-    padding: 0.21rem 0.7rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &::after {
-      content: "";
-      background: url("../../assets/icons/arrow_drop_down-24px.svg") no-repeat
-        center/1.2rem;
-      padding: 0.688rem 0.4rem;
-      cursor: pointer;
-
-      @include tablet {
-        background-size: 0.93rem;
-        padding: 0.688rem 0.45rem;
-      }
-
-      @include desktop {
-        background-size: 1.1rem;
-        padding: 0.688rem 0.6rem;
-      }
-    }
+    @include drop__select--M;
 
     @include tablet {
-      padding: 0.4rem 0.9rem;
+      @include drop__select--DT;
     }
   }
 

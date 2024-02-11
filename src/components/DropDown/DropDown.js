@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Dropdown from "react-dropdown";
 import "./DropDown.scss";
 
 export default function DropDown(props) {
@@ -9,7 +8,7 @@ export default function DropDown(props) {
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
-    onSelect({ name, option });
+    onSelect(name, option);
     setIsOpen(false);
   };
   //from dropdown

@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./AddNewInventory.scss";
 import * as yup from "yup";
 import Dropdown from "../DropDown/DropDown";
-import { AddButton } from "../AddButton/AddButton";
 
 export function AddNewInventory() {
   const initialState = {
@@ -93,15 +92,15 @@ export function AddNewInventory() {
   };
 
   //
-  const handleSelect = (op) => {
-    let { name, option } = op;
+  const handleSelect = (name, option) => {
+    let selectedOption = option;
 
     if (name === "warehouse_id") {
-      option = warehouseList.find(
+      selectedOption = warehouseList.find(
         (warehouse) => warehouse.warehouse_name === option
       ).id;
     }
-    setInventoryData({ ...inventoryData, [name]: option });
+    setInventoryData({ ...inventoryData, [name]: selectedOption });
     setErrors({ ...errors, [name]: "" });
   };
 
@@ -263,7 +262,9 @@ export function AddNewInventory() {
 
           {/**checkout the button mixins */}
           <div className="button">
-            <button className="inventory__cancel">Cancel</button>
+            <Link to="/inventory-list">
+              <button className="inventory__cancel">Cancel</button>
+            </Link>
             <button className="inventory__add">Add Item</button>
           </div>
         </form>

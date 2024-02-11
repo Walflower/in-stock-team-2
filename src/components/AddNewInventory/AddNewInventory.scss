@@ -1,28 +1,107 @@
 @use "../../styles/partials/index" as *;
 
-.inventory__add {
-  @include cta__primary--M;
-
-  &:hover {
-    @include cta__primary--hover;
-  }
+.section__top {
+  width: 100%;
+  border-bottom: 1px solid $secondary--cloud;
+  height: 7rem;
 
   @include tablet {
-    @include cta__primary--DT;
+    height: 5.7rem;
   }
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: $pad--24;
+  padding-left: $pad--16;
+
+  @include tablet {
+    padding: $pad--32;
+    height: 100%;
+  }
+
+  &__arrow {
+    margin-right: $pad--16;
+    margin-bottom: $pad--32;
+
+    @include tablet {
+      margin-bottom: unset;
+    }
+  }
+
+  &__title {
+    font-size: $size__h1--M;
+
+    @include tablet {
+      font-size: $size__h1--DT;
+      line-height: $lheight__h1--DT;
+    }
+  }
+}
+
+br {
+  @include tablet {
+    display: none;
+  }
+}
+.spaced-word {
+  margin-left: 0.25em;
+}
+
+.form {
+  &__subheader {
+    padding-left: $pad--16;
+    padding-top: $pad--16;
+  }
+
+  &__subcontainer {
+    padding: $pad--16 $pad--16;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    @include fieldtext__label--M;
+    padding-bottom: 0.25rem;
+  }
+
+  &__input {
+    @include field__text--M;
+
+    &--description {
+      height: 150px;
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+  border-bottom: 1px solid $secondary--cloud;
+}
+
+.radios {
+  &__label {
+    &--start {
+      margin-right: $pad--80;
+    }
+  }
+}
+
+.buttons {
+  padding: $pad--16 $pad--16;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $background--lightgrey;
 }
 
 .inventory__cancel {
-  @include cta__secondary--M;
-
-  &:hover {
-    @include cta__secondary--hover;
-  }
-  @include tablet {
-    @include cta__secondary--DT;
-  }
+  @include cta__secondary--DT;
+  padding: 0 2.5rem;
 }
 
-.top__addinventory {
-  display: flex;
+.inventory__add {
+  @include cta__primary--DT;
+  padding: 0 2.5rem;
 }

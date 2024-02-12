@@ -27,18 +27,22 @@ export function Inventories() {
 
   return (
     <>
-          <div className="inventorylist__box">
-            <h1 className="inventorylist__title">Iventory List</h1>
-            <input></input>
-            <Link to="/inventory-list/add">
-              <button className="inventorylist__add">Add New Item</button>
-            </Link>
-            </div>
-         
-          {!loading && inventoryList && inventoryList.length > 0 && (
+         <section className="section__large">
+        <div className="large">
+        <h1 className="large__title">Inventory List</h1>
+
+        <div className="large__box">
+          <input className="large__search" placeholder="search..."/>
+          <Link to="/inventory-list/add">
+                <button className="large__add">Add New Item</button>
+              </Link>
+              </div>
+          </div>
+      </section>
+
+      {!loading && inventoryList && inventoryList.length > 0 && (
             <InventoryList inventoryList={inventoryList} isWarehouse = {false} warehouseId={null}/>
           )}
-     
     </>
   );
 }

@@ -12,7 +12,7 @@ import { EditInventory } from "./components/EditInventory/EditInventory";
 import { AddNewInventory } from "./components/AddNewInventory/AddNewInventory";
 import { DeleteInventoryItem } from "./components/DeleteInventoryItem/DeleteInventoryItem";
 import { InventoryItemDetails } from "./components/InventoryItemDetails/InventoryItemDetails";
-import Inventories from "./components/InventoryList/Inventories";
+import {Inventories} from "./components/InventoryList/Inventories";
 
 function App() {
   return (

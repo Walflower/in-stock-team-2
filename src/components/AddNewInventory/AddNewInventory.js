@@ -149,7 +149,7 @@ export function AddNewInventory() {
             <img className="top__arrow" src={Arrow} alt="back arrow" />
           </Link>
           <h1 className="top__title">
-            ADD New Inventory
+            Add New Inventory
             <br />
             <span class="spaced-word">Item</span>
           </h1>

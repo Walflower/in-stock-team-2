@@ -1,28 +1,132 @@
-@use "../../styles/partials/index" as *;
+@use '../../styles/partials/index' as *;
 
-.inventory__add {
-  @include cta__primary--M;
-
-  &:hover {
-    @include cta__primary--hover;
-  }
-
-  @include tablet {
-    @include cta__primary--DT;
-  }
+// mobile first view
+input {
+    @include field__text--M;
 }
 
-.inventory__cancel {
-  @include cta__secondary--M;
+.edit {
+    // Styles for header box
+    width: 100%;
+    display: flex;
+    border-bottom: 0.1rem solid $secondary--cloud;
+    height: 7rem;
 
-  &:hover {
-    @include cta__secondary--hover;
-  }
-  @include tablet {
-    @include cta__secondary--DT;
-  }
+    @include tablet {
+        height: 5.75rem;
+        border-bottom: none;
+    }
+    @include desktop {
+        border-bottom: 0.1rem solid $secondary--cloud;
+    }
+
+    &__warehouse {
+        // Styles for h1 header in header box with class edit__warehouse
+        font-size: $size__h1--M;
+        padding: 2rem 1rem;
+
+        @include tablet {
+            font-size: $size__h1--DT
+        }
+        @include desktop {
+            font-size: $size__h1--DT
+        }
+    }
+
+    &__return {
+        // Styles for return arrow in header
+        margin-right: 1rem;
+    }
+}
+  
+.details {
+    // Styles for section with class details
+    
+    &__form {
+        // Styles for form with class details__form
+        border-radius: 5%;
+    
+        .details__main {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            @include tablet {
+                flex-direction: row;
+            }
+
+            .details__container {
+                padding: 0 2rem;
+                margin: 1rem 0;
+                width: 100%;
+
+                @include tablet {
+                   border-right: 0.1rem solid $secondary--cloud;
+                }
+                @include desktop {
+                    border-right: 0.1rem solid $secondary--cloud;
+                }
+                
+                .details__subheader {
+                    font-size: $size__h2--M;
+                    color: $primary--black;
+                }
+
+                .details__subcontainer {
+                    margin: 1rem 0;
+
+                    &__label {
+                        // Styles for labels inside divs
+                        color: $primary--black;
+                        font-size: $size__h3--M;
+                        line-height: $lheight__h3--M;
+                        font-weight: 600;
+                        @include fieldtext__label--M;
+                    }
+                            
+                    &__input {
+                        // Styles for inputs inside divs
+                        @include field__text--M;
+                        @include cta__primary--M;
+
+                    }
+            }
+        }    
+    }
 }
 
-.top__addinventory {
-  display: flex;
+    .button {
+    // Styles for div with class button
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: $background--lightgrey;
+
+        @include tablet {
+            justify-content: right
+        }
+
+        &__save {
+            // Styles for button with class button__save
+            @include cta__primary--M;
+            width: 45%;
+            margin: 1rem
+        }
+
+        &__cancel {
+            // Styles for button with class button__cancel
+            @include cta__secondary--M;
+            width: 45%;
+            margin: 1rem 
+
+        }
+
+        @include tablet {
+            &__save, &__cancel {
+                width: 15%;
+            }
+        }
+    }
 }
+
+

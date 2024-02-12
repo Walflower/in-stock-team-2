@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import InventoryList from "./InventoryList";
+import search from "../../assets/icons/search-24px.svg";
 
 export function Inventories() {
   const { REACT_APP_API_BASE_PATH } = process.env;
@@ -29,7 +30,7 @@ export function Inventories() {
     <>
          <section className="section__large">
         <div className="large">
-        <h1 className="large__title">Inventory List</h1>
+        <h1 className="large__title">Inventory</h1>
 
         <div className="large__box">
           <input className="large__search" placeholder="search..."/>

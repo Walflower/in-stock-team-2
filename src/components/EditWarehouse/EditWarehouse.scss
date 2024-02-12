@@ -1,187 +1,217 @@
 @use '../../styles/partials/index' as *;
 
-// mobile first view
 
-.edit {
-    // Styles for header box
-    width: 100%;
-    display: flex;
-    border-bottom: 0.15rem solid $secondary--cloud;
-    height: 7rem;
 
-    &__warehouse {
-        // Styles for h1 header in header box with class edit__warehouse
-        font-size: $size__h1--M;
-        padding: 2rem 1rem;
-    }
+.inventory__add {
+  @include cta__primary--M;
 
-    &__return {
-        // Styles for return arrow in header
-        margin-right: 1rem;
-        
-    }
+  &:hover {
+    @include cta__primary--hover;
+  }
+
+  @include tablet {
+    @include cta__primary--DT;
+  }
 }
+
+.inventory__cancel {
+  @include cta__secondary--M;
+
+  &:hover {
+    @include cta__secondary--hover;
+  }
+  @include tablet {
+    @include cta__secondary--DT;
+  }
+}
+
+.top__addinventory {
+  display: flex;
+}
+
+
+// // mobile first view
+
+// .edit {
+//     // Styles for header box
+//     width: 100%;
+//     display: flex;
+//     border-bottom: 0.15rem solid $secondary--cloud;
+//     height: 7rem;
+
+//     &__warehouse {
+//         // Styles for h1 header in header box with class edit__warehouse
+//         font-size: $size__h1--M;
+//         padding: 2rem 1rem;
+//     }
+
+//     &__return {
+//         // Styles for return arrow in header
+//         margin-right: 1rem;
+        
+//     }
+// }
   
-.details {
-    // Styles for section with class details
+// .details {
+//     // Styles for section with class details
 
     
-    &__form {
-        // Styles for form with class details__form
-        border-radius: 5%;
-    }
+//     &__form {
+//         // Styles for form with class details__form
+//         border-radius: 5%;
+//     }
     
-    .details__container {
+//     .details__container {
 
-    }
+//     }
 
-    &__divider {
-        border-bottom-style: solid;
-        border-bottom-width: 0.15rem;
-        margin: 1rem 0;
-        border-bottom-color: $secondary--cloud;
-    }
+//     &__divider {
+//         border-bottom-style: solid;
+//         border-bottom-width: 0.15rem;
+//         margin: 1rem 0;
+//         border-bottom-color: $secondary--cloud;
+//     }
 
-    &__subheader {
-        font-size: $size__h2--M;
-        color: $primary--black;
-    }
+//     &__subheader {
+//         font-size: $size__h2--M;
+//         color: $primary--black;
+//     }
 
-    &__subcontainer {
-        margin: 1rem 0;
-    }
+//     &__subcontainer {
+//         margin: 1rem 0;
+//     }
 
-    &__label {
-        // Styles for labels inside divs
-        color: $primary--black;
-        font-size: $size__h3--M;
-        font-size: $lheight__h3--M;
-        font-weight: 600;
-    }
+//     &__label {
+//         // Styles for labels inside divs
+//         color: $primary--black;
+//         font-size: $size__h3--M;
+//         font-size: $lheight__h3--M;
+//         font-weight: 600;
+//     }
             
-    &__input {
-        // Styles for inputs inside divs
-        @include field__text--M;
-    }
-} 
+//     &__input {
+//         // Styles for inputs inside divs
+//         @include field__text--M;
+//     }
+// } 
 
-.button {
-// Styles for div with class button
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: $background--lightgrey;
+// .button {
+// // Styles for div with class button
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     background-color: $background--lightgrey;
 
-    &__save {
-        // Styles for button with class button__save
-        @include cta__primary--M;
-        width: 45%;
-        margin: 1rem 
+//     &__save {
+//         // Styles for button with class button__save
+//         @include cta__primary--M;
+//         width: 45%;
+//         margin: 1rem 
         
-    }
+//     }
 
-    &__cancel {
-        // Styles for button with class button__cancel
-        @include cta__secondary--M;
-        width: 45%;
-        margin: 1rem 
+//     &__cancel {
+//         // Styles for button with class button__cancel
+//         @include cta__secondary--M;
+//         width: 45%;
+//         margin: 1rem 
 
-    }
-}
+//     }
+// }
 
-@include tablet {
-    .edit {
-        // Styles for header box
-        width: 100%;
-        display: flex;
-        border-bottom: 0.15rem solid $secondary--cloud;
-        height: 7rem;
+// @include tablet {
+//     .edit {
+//         // Styles for header box
+//         width: 100%;
+//         display: flex;
+//         border-bottom: 0.15rem solid $secondary--cloud;
+//         height: 7rem;
     
-        &__warehouse {
-            // Styles for h1 header in header box with class edit__warehouse
-            font-size: $size__h1--M;
-            padding: 2rem 1rem;
-        }
+//         &__warehouse {
+//             // Styles for h1 header in header box with class edit__warehouse
+//             font-size: $size__h1--M;
+//             padding: 2rem 1rem;
+//         }
     
-        &__return {
-            // Styles for return arrow in header
-            margin-right: 1rem;
+//         &__return {
+//             // Styles for return arrow in header
+//             margin-right: 1rem;
             
-        }
-    }
+//         }
+//     }
       
-    .details {
-        // Styles for section with class details
-        display: flex;
-        flex-direction: column;
+//     .details {
+//         // Styles for section with class details
+//         display: flex;
+//         flex-direction: column;
         
-        &__form {
-            // Styles for form with class details__form
-            border-radius: 5%;
-        }
+//         &__form {
+//             // Styles for form with class details__form
+//             border-radius: 5%;
+//         }
         
-        .details__container {
-            // display: flex;
-            // flex-direction: column;
+//         .details__container {
+//             // display: flex;
+//             // flex-direction: column;
     
-        }
+//         }
     
-        &__divider {
-            border-bottom-style: solid;
-            border-bottom-width: 0.15rem;
-            margin: 1rem 0;
-            border-bottom-color: $secondary--cloud;
-        }
+//         &__divider {
+//             border-bottom-style: solid;
+//             border-bottom-width: 0.15rem;
+//             margin: 1rem 0;
+//             border-bottom-color: $secondary--cloud;
+//         }
     
-        &__subheader {
-            font-size: $size__h2--M;
-            color: $primary--black;
-        }
+//         &__subheader {
+//             font-size: $size__h2--M;
+//             color: $primary--black;
+//         }
     
-        &__subcontainer {
-            margin: 1rem 0;
-        }
+//         &__subcontainer {
+//             margin: 1rem 0;
+//         }
     
-        &__label {
-            // Styles for labels inside divs
-            color: $primary--black;
-            font-size: $size__h3--M;
-            font-size: $lheight__h3--M;
-            font-weight: 600;
-        }
+//         &__label {
+//             // Styles for labels inside divs
+//             color: $primary--black;
+//             font-size: $size__h3--M;
+//             font-size: $lheight__h3--M;
+//             font-weight: 600;
+//         }
                 
-        &__input {
-            // Styles for inputs inside divs
-            @include field__text--M;
-        }
-    } 
+//         &__input {
+//             // Styles for inputs inside divs
+//             @include field__text--M;
+//         }
+//     } 
     
-    .button {
-    // Styles for div with class button
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        background-color: $background--lightgrey;
+//     .button {
+//     // Styles for div with class button
+//         width: 100%;
+//         display: flex;
+//         justify-content: space-between;
+//         background-color: $background--lightgrey;
     
-        &__save {
-            // Styles for button with class button__save
-            @include cta__primary--M;
-            width: 45%;
-            margin: 1rem 
+//         &__save {
+//             // Styles for button with class button__save
+//             @include cta__primary--M;
+//             width: 45%;
+//             margin: 1rem 
             
-        }
+//         }
     
-        &__cancel {
-            // Styles for button with class button__cancel
-            @include cta__secondary--M;
-            width: 45%;
-            margin: 1rem 
+//         &__cancel {
+//             // Styles for button with class button__cancel
+//             @include cta__secondary--M;
+//             width: 45%;
+//             margin: 1rem 
     
-        }
-    }
+//         }
+//     }
 
-}
+// }
 
-@include desktop {
+// @include desktop {
     
-}
+// }

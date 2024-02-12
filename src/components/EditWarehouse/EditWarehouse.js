@@ -24,6 +24,7 @@ export const EditWarehouse = () => {
         contact_email: "",
       });
 
+
     useEffect(() => {
         const getWarehouse = async () => {
             try {

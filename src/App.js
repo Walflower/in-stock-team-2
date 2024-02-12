@@ -7,7 +7,7 @@ import { Warehouses } from "./components/Warehouses/Warehouses";
 import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
 import { DeleteWarehouse } from "./components/DeleteWarehouse/DeleteWarehouse";
 import { AddNewWarehouse } from "./components/AddNewWarehouse/AddNewWarehouse";
-import { EditWarehouse } from "./components/EditWarehouse/EditWarehouse.js";
+import { EditWarehouse } from "./components/EditWarehouse/EditWareHouse.js";
 import { EditInventory } from "./components/EditInventory/EditInventory";
 import { AddNewInventory } from "./components/AddNewInventory/AddNewInventory";
 import { DeleteInventoryItem } from "./components/DeleteInventoryItem/DeleteInventoryItem";

@@ -25,13 +25,17 @@ export function Warehouses() {
 
   return (
     <>
-      <section>
-        <h1>Warehouses</h1>
+      <section className="section__large">
+        <div className="large">
+        <h1 className="large__title">Warehouses</h1>
 
-        <input></input>
-        <Link to="/warehouse-add">
-              <button className="inventorylist__add">Add New Warehouse</button>
-            </Link>
+        <div className="large__box">
+          <input className="large__search" placeholder="search..."/>
+          <Link to="/warehouse-add">
+                <button className="inventorylist__add">Add New Warehouse</button>
+              </Link>
+              </div>
+          </div>
       </section>
 
       {!loading && warehouseList && warehouseList.length > 0 && (

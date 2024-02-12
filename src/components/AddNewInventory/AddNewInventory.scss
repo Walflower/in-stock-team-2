@@ -67,9 +67,11 @@ br {
   }
   &__subheader {
     padding-left: $pad--16;
+    padding-top: $pad--16;
 
     @include tablet {
       padding-left: $pad--32;
+      padding-top: unset;
     }
   }
 
@@ -90,6 +92,10 @@ br {
 
   &__input {
     @include field__text--M;
+
+    &:invalid {
+      @include field__error;
+    }
 
     &--description {
       height: 150px;
@@ -114,7 +120,7 @@ br {
   }
 
   &__button {
-    margin-right: 0.5rem;
+    @include radio__btn;
   }
 }
 

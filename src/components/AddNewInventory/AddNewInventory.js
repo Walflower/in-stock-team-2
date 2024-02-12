@@ -23,7 +23,6 @@ export function AddNewInventory() {
   const [showQuantityInput, setShowQuantityInput] = useState(false);
 
   const navigate = useNavigate();
-  const [showNotification, setShowNotification] = useState(false);
 
   const inventoryValidationSchema = yup.object().shape({
     warehouse_id: yup.string().required("Warehouse name is required"),
@@ -175,6 +174,9 @@ export function AddNewInventory() {
                 value={inventoryData.item_name}
                 onChange={handleItemNameChange}
               ></input>
+              {errors.item_name && (
+                <p className="dropdown__error-message">{errors.item_name}</p>
+              )}
             </div>
 
             <div className="form__subcontainer">
@@ -190,6 +192,9 @@ export function AddNewInventory() {
                 value={inventoryData.description}
                 onChange={handleDescriptionChange}
               ></textarea>
+              {errors.item_name && (
+                <p className="dropdown__error-message">{errors.description}</p>
+              )}
             </div>
 
             <div className="form__subcontainer">
@@ -239,6 +244,9 @@ export function AddNewInventory() {
                   />
                   Out of stock
                 </label>
+                {errors.item_name && (
+                  <p className="dropdown__error-message">{errors.status}</p>
+                )}
               </section>
             </div>
 
@@ -256,6 +264,9 @@ export function AddNewInventory() {
                     className="form__input"
                   />
                 </>
+              )}
+              {errors.item_name && (
+                <p className="dropdown__error-message">{errors.quantity}</p>
               )}
             </div>
 

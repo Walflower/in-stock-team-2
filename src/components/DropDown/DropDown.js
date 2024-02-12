@@ -11,13 +11,12 @@ export default function DropDown(props) {
     onSelect(name, option);
     setIsOpen(false);
   };
-  //from dropdown
-// <option value="" disabled selected hidden>Please Select</option>
+
   return (
     <div className="dropdown">
       <div className="dropdown__input" onClick={() => setIsOpen(!isOpen)}>
         {selectedOption ? (
-          <span className="dropdown__selected">{selectedOption[name]}</span>
+          <span className="dropdown__selected">{selectedOption[options]}</span>
         ) : (
           <span className="dropdown__placeholder">{placeholder}</span>
         )}

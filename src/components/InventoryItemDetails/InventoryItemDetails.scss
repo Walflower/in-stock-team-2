@@ -18,7 +18,7 @@
             padding: 1rem;
 
             & .header__icon--returnArrow {
-           
+                margin-right: 1rem;
             }   
         }
 
@@ -29,15 +29,9 @@
 
         .header__button {
             border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            // @include cta__primary--M;
-
-            // background-image: url(../../assets/icons/edit-24px.svg);
-            // //Image is the same color as the background TODO
-            // background-repeat: no-repeat;
-            // background-position-y: center;
-            // background-position-x: 8px;
+            width: 2.5rem;
+            height: 2.5rem;
+            
 
             &:hover {
             @include cta__primary--hover;
@@ -48,8 +42,9 @@
         }
         
         .header__icon {
-            width: 3rem;
+            width: 1.5rem;
             height: 1.5rem;
+            border-radius: 50%;
 
         }
     }

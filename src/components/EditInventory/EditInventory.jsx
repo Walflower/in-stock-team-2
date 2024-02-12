@@ -19,6 +19,9 @@ export function EditInventory() {
 
   const [inventory, setInventory] = useState(null);
   const [formData, setFormData] = useState(initialValues);
+
+  const [warehouseList, setWarehouseList] = useState();
+  const [categoryList, setCategoryList] = useState([]);
   
 
   const baseURL = "http://localhost:8080";
@@ -60,6 +63,38 @@ export function EditInventory() {
       [name]: value,
     })
   }
+
+
+
+  const getDropDown = async () => {
+    try {
+      const warehouseData = await axios.get(`http://localhost:8080/warehouses`);
+      if (warehouseData.status === 200) {
+        const warehouseNames = warehouseData.data.map((warehouse) => ({
+          id: warehouse.id,
+          warehouse_name: warehouse.warehouse_name,
+        }));
+        setWarehouseList(warehouseNames);
+      }
+
+      const inventoryResponse = await axios.get(
+        `http://localhost:8080/inventories`
+      );
+      if (inventoryResponse.status === 200) {
+        const inventoryCategories = new Set();
+        inventoryResponse.data.forEach((inventory) => {
+          inventoryCategories.add(inventory.category);
+        });
+        setCategoryList(Array.from(inventoryCategories));
+      }
+    } catch (error) {
+      console.error("Error fetching data", error);
+    }
+  };
+
+  useEffect(() => {
+    getDropDown();
+  }, []);
 
   return (
     <>

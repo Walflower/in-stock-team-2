@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import chevron from "../../assets/icons/chevron_right-24px.svg";
+import returnArrow from "../../assets/icons/arrow_back-24px.svg";
 
 export const AddNewWarehouse = () => {
 
@@ -58,7 +59,7 @@ export const AddNewWarehouse = () => {
     return (
         <>
             <header className="edit">
-                <h1 className='edit__warehouse'>Add New Warehouse</h1>
+                <h1 className='edit__warehouse'><img className="edit__return" src={returnArrow} alt="return to warehouse details page"></img>Add New Warehouse</h1>
             </header>
 
             <section className='details'>
@@ -101,7 +102,7 @@ export const AddNewWarehouse = () => {
                             
                             <div className='details__subcontainer'>
                                 <label htmlFor="contact_name" className='details__label'>Contact Name</label>
-                                <input type='text' id="contact_name" name="contact_name" placeholder='contact' className='details__input' value={warehouseData.contact_name} onChange={handleChange}></input>
+                                <input type='text' id="contact_name" name="contact_name" placeholder='Contact Name' className='details__input' value={warehouseData.contact_name} onChange={handleChange}></input>
                             </div>    
 
                             <div className='details__subcontainer'>

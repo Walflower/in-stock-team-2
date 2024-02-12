@@ -41,7 +41,7 @@ export const InventoryItemDetails = () => {
         <header className="header__details">
           <div className="header__container">
             <h1 className="header__name"><Link to="/inventory-list"><img className="header__icon--returnArrow" src={returnArrow} alt=""></img></Link>{inventoryDetails.item_name}</h1>
-            <Link to={`/inventory-list/${inventoryId}/edit`}><button className="header__button"><img className="header__icon" src={edit} alt="">{}</img></button></Link>
+            <Link to={`/inventory-list/${inventoryId}/edit`}><button className="header__button"><img className="header__icon" src={edit} alt="">{}</img>Edit</button></Link>
           </div>
         </header>
 

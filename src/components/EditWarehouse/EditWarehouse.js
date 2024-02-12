@@ -113,6 +113,8 @@ export const EditWarehouse = () => {
                             </article>
 
                             <div className='divider'></div>
+                            <div className='vertical__divider'></div>
+
 
                                 <article className='details__container'>
                                     <h2 className='details__subheader'>Contact Details</h2>

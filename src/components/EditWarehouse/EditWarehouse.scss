@@ -12,6 +12,10 @@ input {
     border-bottom: 0.1rem solid $secondary--cloud;
     height: 7rem;
 
+    @include tablet {
+        height: 5.75rem;
+    }
+
     &__warehouse {
         // Styles for h1 header in header box with class edit__warehouse
         font-size: $size__h1--M;
@@ -21,7 +25,6 @@ input {
     &__return {
         // Styles for return arrow in header
         margin-right: 1rem;
-        
     }
 }
   
@@ -31,37 +34,47 @@ input {
     &__form {
         // Styles for form with class details__form
         border-radius: 5%;
-    }
     
-    .details__container {
-        padding: 1rem;
+        .details__main {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
 
-        &__subheader {
-            font-size: $size__h2--M;
-            color: $primary--black;
-        }
-
-        .details__subcontainer {
-            margin: 1rem 0;
-        
-            &__label {
-                // Styles for labels inside divs
-                color: $primary--black;
-                font-size: $size__h3--M;
-                font-size: $lheight__h3--M;
-                font-weight: 600;
-                @include fieldtext__label--M;
+            @include tablet {
+                flex-direction: row;
             }
-                    
-            &__input {
-                // Styles for inputs inside divs
-                @include field__text--M;
-                @include cta__primary--M;
 
+            .details__container {
+                padding: 1rem;
+                width: 100%;
+
+                .details__subheader {
+                    font-size: $size__h2--M;
+                    color: $primary--black;
+                }
+
+                .details__subcontainer {
+                    margin: 1rem 0;
+                
+                    &__label {
+                        // Styles for labels inside divs
+                        color: $primary--black;
+                        font-size: $size__h3--M;
+                        font-size: $lheight__h3--M;
+                        font-weight: 600;
+                        @include fieldtext__label--M;
+                    }
+                            
+                    &__input {
+                        // Styles for inputs inside divs
+                        @include field__text--M;
+                        @include cta__primary--M;
+
+                    }
             }
-        }
-    
+        }    
     }
+}
 
     .button {
     // Styles for div with class button
@@ -70,12 +83,15 @@ input {
         justify-content: space-between;
         background-color: $background--lightgrey;
 
+        @include tablet {
+            justify-content: right
+        }
+
         &__save {
             // Styles for button with class button__save
             @include cta__primary--M;
             width: 45%;
-            margin: 1rem 
-            
+            margin: 1rem
         }
 
         &__cancel {
@@ -84,6 +100,12 @@ input {
             width: 45%;
             margin: 1rem 
 
+        }
+
+        @include tablet {
+            &__save, &__cancel {
+                width: 10%;
+            }
         }
     }
 }

@@ -84,60 +84,61 @@ export const EditWarehouse = () => {
 
                     <form onSubmit={handleSubmit} className='details__form'>
 
-                        <article className='details__container'>
+                        <section className="details__main">
 
-                            <h2 className='details__subheader'>Warehouse Details</h2>
-                            
-                            <div className='details__subcontainer'>
-                                <label htmlFor="warehouse_name" className='details__label'>Warehouse Name</label>
-                                <input className='details__input' type='text' id="warehouse_name" name="warehouse_name" placeholder={warehouse.warehouse_name} value={formData.warehouse_name} onChange={handleChange}></input>
-                            </div>
+                            <article className='details__container'>
+                                <h2 className='details__subheader'>Warehouse Details</h2>
 
-                            <div className='details__subcontainer'>
-                                <label htmlFor="address" className='details__label'>Street Address</label>
-                                <input className='details__input' type='text' id="address" name="address" placeholder={warehouse.address} value={formData.address} onChange={handleChange}></input>
-                            </div>
+                                    <div className='details__subcontainer'>
+                                        <label htmlFor="warehouse_name" className='details__label'>Warehouse Name</label>
+                                        <input className='details__input' type='text' id="warehouse_name" name="warehouse_name" placeholder={warehouse.warehouse_name} value={formData.warehouse_name} onChange={handleChange}></input>
+                                    </div>
 
-                            <div className='details__subcontainer'>
-                                <label htmlFor="city" className='details__label'>City</label>
-                                <input type='text' id="city" name="city" placeholder={warehouse.city}  className='details__input' value={formData.city} onChange={handleChange}></input>
-                            </div>
+                                    <div className='details__subcontainer'>
+                                        <label htmlFor="address" className='details__label'>Street Address</label>
+                                        <input className='details__input' type='text' id="address" name="address" placeholder={warehouse.address} value={formData.address} onChange={handleChange}></input>
+                                    </div>
 
-                            <div className='details__subcontainer'>
-                                <label htmlFor="country" className='details__label'>Country</label>
-                                <input type='text' id="country" name="country" placeholder={warehouse.country}  className='details__input' value={formData.country} onChange={handleChange}></input>
-                            </div>    
+                                    <div className='details__subcontainer'>
+                                        <label htmlFor="city" className='details__label'>City</label>
+                                        <input type='text' id="city" name="city" placeholder={warehouse.city}  className='details__input' value={formData.city} onChange={handleChange}></input>
+                                    </div>
+
+                                    <div className='details__subcontainer'>
+                                        <label htmlFor="country" className='details__label'>Country</label>
+                                        <input type='text' id="country" name="country" placeholder={warehouse.country}  className='details__input' value={formData.country} onChange={handleChange}></input>
+                                    </div>    
 
                             </article>
 
-                        <div className='divider'></div>
-                    
-                        <article className='details__container'>
+                            <div className='divider'></div>
 
-                            <h2 className='details__subheader'>Contact Details</h2>
-                            
-                            <div className='details__subcontainer'>
-                                <label htmlFor="contact_name" className='details__label'>Contact Name</label>
-                                <input type='text' id="contact_name" name="contact_name" placeholder={warehouse.contact_name} className='details__input' value={formData.contact_name} onChange={handleChange}></input>
-                            </div>    
+                                <article className='details__container'>
+                                    <h2 className='details__subheader'>Contact Details</h2>
 
-                            <div className='details__subcontainer'>
-                                <label htmlFor="contact_position" className='details__label'>Position</label>
-                                <input type='text' id="contact_position" name="contact_position" placeholder={warehouse.contact_position} className='details__input' value={formData.contact_position} onChange={handleChange}></input>
-                            </div>    
+                                        <div className='details__subcontainer'>
+                                            <label htmlFor="contact_name" className='details__label'>Contact Name</label>
+                                            <input type='text' id="contact_name" name="contact_name" placeholder={warehouse.contact_name} className='details__input' value={formData.contact_name} onChange={handleChange}></input>
+                                        </div>    
+
+                                        <div className='details__subcontainer'>
+                                            <label htmlFor="contact_position" className='details__label'>Position</label>
+                                            <input type='text' id="contact_position" name="contact_position" placeholder={warehouse.contact_position} className='details__input' value={formData.contact_position} onChange={handleChange}></input>
+                                        </div>    
 
 
-                            <div className='details__subcontainer'>
-                                <label htmlFor="contact_phone" className='details__label'>Phone Number</label>
-                                <input type='text' id="contact_phone" name="contact_phone" placeholder={warehouse.contact_phone} className='details__input' value={formData.contact_phone} onChange={handleChange}></input>
-                            </div>    
+                                        <div className='details__subcontainer'>
+                                            <label htmlFor="contact_phone" className='details__label'>Phone Number</label>
+                                            <input type='text' id="contact_phone" name="contact_phone" placeholder={warehouse.contact_phone} className='details__input' value={formData.contact_phone} onChange={handleChange}></input>
+                                        </div>    
 
-                            <div className='details__subcontainer'>
-                                <label htmlFor="contact_email" className='details__label'>Email</label>
-                                <input type='text' id="contact_email" name="contact_email" placeholder={warehouse.contact_email} className='details__input' value={formData.contact_email} onChange={handleChange}></input>
-                            </div>     
-
-                        </article>
+                                        <div className='details__subcontainer'>
+                                            <label htmlFor="contact_email" className='details__label'>Email</label>
+                                            <input type='text' id="contact_email" name="contact_email" placeholder={warehouse.contact_email} className='details__input' value={formData.contact_email} onChange={handleChange}></input>
+                                        </div>     
+                                </article>
+                                
+                        </section>
                         
                             <div className='button'>
                                     <button className='button__cancel'>Cancel</button>

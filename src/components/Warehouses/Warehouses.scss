@@ -1,30 +1,99 @@
 @use "../../styles/partials/index" as *;
 
-.warehouses__header--landing {
-    padding: 1rem;
+.section__large {
+  width: 100%;
+  border-bottom: 1px solid $secondary--cloud;
+  height: 12rem;
+
+  @include tablet {
+    height: 5.7rem;
+    border-bottom: unset;
+  }
 }
 
-.warehouses__input {
-    width: 100%;
-    padding: 1rem;
-    background-image: url("../../assets//icons//search-24px.svg");
-    background-repeat: no-repeat;
-    background-position: right;
+.large {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: $pad--16;
+  height: 100%;
+  justify-content: space-evenly;
 
-        @include tablet {
-            width: 25%;
-        }
-}
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.warehouses__container--landing {
-    width: 100%;
-    display: flex;
-    padding: 1rem;
-}
+  &__title {
+    font-size: $size__h1--M;
 
-.warehouses__subcontainer--landing {
+    @include tablet {
+      font-size: $size__h1--DT;
+    }
+  }
+
+  &__box {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    height: 70%;
+
+    @include tablet {
+      flex-direction: row;
+      width: 70%;
+      justify-content: flex-end;
+      margin-right: $pad--32;
+    }
+  }
+
+  &__search {
+    @include search__input--M;
+
+    @include tablet {
+      @include search__input--DT;
+      width: 15rem;
+    }
+  }
+
+  &__add {
+    background-image: url(../../assets/icons/add-24px.svg);
+    background-repeat: no-repeat;
+    background-position: left 1.25rem center;
+
+    @include cta__primary--M;
+
+    &:hover {
+      @include cta__secondary--hover;
+    }
+    @include tablet {
+      @include cta__primary--M;
+      padding: 0 2rem;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.warehouse__list-contact {
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+
+    @include desktop {
+      padding-right: 6rem;
+    }
+  }
+}
+
+.warehouse__list-address {
+  @include tablet {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 5rem;
+
+    @include desktop {
+      padding-right: 9rem;
+    }
+  }
 }

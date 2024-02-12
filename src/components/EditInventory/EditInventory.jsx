@@ -1,72 +1,199 @@
-
-import "./EditInventory.scss";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
+import * as yup from "yup";
+import Dropdown from "../DropDown/DropDown";
+import Arrow from "../../assets/icons/arrow_back-24px.svg";
+import "./EditInventory.scss";
 
 export function EditInventory() {
 
-  const REACT_APP_API_BASE_PATH = process.env
-  const { inventoryId } = useParams();
 
-  const initialValues = {
-    itemName :"",
-    description:"",
-    category:"",
-    status:"",
-    warehouse:""
+const {inventoryId} = useParams();
+
+  const initialState = {
+    warehouse_id: "",
+    item_name: "",
+    description: "",
+    category: "",
+    status: "In stock",
+    quantity: "",
+  };
+
+  const [inventoryData, setInventoryData] = useState(initialState);
+  const [warehouseList, setWarehouseList] = useState();
+  const [categoryList, setCategoryList] = useState([]);
+  const [errors, setErrors] = useState({});
+  const [showQuantityInput, setShowQuantityInput] = useState(false);
+
+  const navigate = useNavigate();
+  const [showNotification, setShowNotification] = useState(false);
+
+  const inventoryValidationSchema = yup.object().shape({
+    warehouse_id: yup.string().required("Warehouse name is required"),
+    item_name: yup.string().required("Inventory name is required"),
+    description: yup.string().required("Description is required"),
+    category: yup.string().required("Category is required"),
+    quantity: yup
+      .number()
+      .typeError("Quantity must be a number")
+      .required("Quantity is required")
+      .integer("Quantity must be an integer")
+      .min(0, "Quantity cannot be negative"),
+    status: yup.string().required("Status is required"),
+  });
+
+const [inventory, setInventory] = useState(null);
+const fetchInventory = async () =>{
+  try {
+    const res = await axios.get(`http://localhost:8080/inventories/${inventoryId}`)
+    setInventory(res.data);
+    console.log("inventory item", res.data);
+  } catch (error) {
+    console.error('Error fetching inventory item', error)
   }
+}
+useEffect(()=>{
+  fetchInventory();
+}, [inventoryId])
 
-  const [inventory, setInventory] = useState(null);
-  const [formData, setFormData] = useState(initialValues);
-  
-
-  const baseURL = "http://localhost:8080";
-  const fetchInventory = async () =>{
-    try {
-      // const resp = await axios.get(`${baseURL}/inventories/${inventoryId}`);
-      const res = await axios.get(`http://localhost:8080/inventories/${inventoryId}`)
-      setInventory(res.data);
-      console.log("inventory item", res.data);
-    } catch (error) {
-      console.error('Error fetching inventory item', error)
-    }
+const setInitialInventoryData = () =>{
+  if(inventory){
+  setInventoryData({
+    warehouse_id:inventory.warehouse,
+    item_name :inventory.item_name,
+    description:inventory.description,
+    category:inventory.category,
+    status:inventory.status,
+    quantity: inventory.quantity,
+  })
   }
-  useEffect(()=>{
-    fetchInventory();
-  }, [inventoryId])
-
-  const setInitialFormData = () =>{
-    if(inventory){
-   
-    setFormData({
-      itemName :inventory.item_name,
-      description:inventory.description,
-      category:inventory.category,
-      status:inventory.status,
-      warehouse:inventory.warehouse,
-    })
-    }
-  } 
-  useEffect(()=>{
-    setInitialFormData();
-  }, [inventory])
+} 
+useEffect(()=>{
+  setInitialInventoryData();
+}, [inventory])
  
 
-  const handleChange = (e) =>{
-    const {name, value} = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
-  }
+  const getDropDown = async () => {
+    try {
+      const warehouseData = await axios.get(`http://localhost:8080/warehouses`);
+      if (warehouseData.status === 200) {
+        const warehouseNames = warehouseData.data.map((warehouse) => ({
+          id: warehouse.id,
+          warehouse_name: warehouse.warehouse_name,
+        }));
+        setWarehouseList(warehouseNames);
+      }
+
+      const inventoryResponse = await axios.get(
+        `http://localhost:8080/inventories`
+      );
+      if (inventoryResponse.status === 200) {
+        const inventoryCategories = new Set();
+        inventoryResponse.data.forEach((inventory) => {
+          inventoryCategories.add(inventory.category);
+        });
+        setCategoryList(Array.from(inventoryCategories));
+      }
+    } catch (error) {
+      console.error("Error fetching data", error);
+    }
+  };
+
+  useEffect(() => {
+    getDropDown();
+  }, []);
+
+  const handleItemNameChange = (e) => {
+    const { value } = e.target;
+    setInventoryData({ ...inventoryData, item_name: value });
+  };
+
+  const handleDescriptionChange = (e) => {
+    const { value } = e.target;
+    setInventoryData({ ...inventoryData, description: value });
+  };
+
+  const handleRadioChange = (value) => {
+    setInventoryData({ ...inventoryData, status: value });
+
+    setShowQuantityInput(value === "Out of Stock");
+
+    setErrors({ ...errors, status: "" });
+  };
+  //
+  const handleQuantityChange = (e) => {
+    const { value } = e.target;
+    setInventoryData({ ...inventoryData, quantity: value });
+    setErrors({ ...errors, quantity: "" });
+  };
+
+  //
+  const handleSelect = (name, option) => {
+    let selectedOption = option;
+
+    if (name === "warehouse_id") {
+      selectedOption = warehouseList.find(
+        (warehouse) => warehouse.warehouse_name === option
+      ).id;
+    }
+    setInventoryData({ ...inventoryData, [name]: selectedOption });
+    setErrors({ ...errors, [name]: "" });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (inventoryData.status === "Out of Stock") {
+        inventoryData.quantity = "0";
+      } else {
+        inventoryData.quantity = parseInt(inventoryData.quantity);
+      }
+
+      // Validate the form data
+      await inventoryValidationSchema.validate(inventoryData, {
+        abortEarly: false,
+      });
+      console.log(inventoryData); //remove
+
+      const response = await axios.put(
+        `http://localhost:8080/inventories/${inventoryId}`,
+        inventoryData
+      );
+
+      if (response.status === 201) {
+        setInventoryData(initialState);
+        alert("Inventory was added successfully!");
+        navigate("/inventory-list");
+      }
+    } catch (err) {
+      if (err.name === "ValidationError") {
+        const validationErrors = {};
+        err.inner.forEach((error) => {
+          validationErrors[error.path] = error.message;
+        });
+        setErrors(validationErrors);
+      } else {
+        console.error("Form submission error:", err);
+        alert("the inventory add was unsuccessful. Please try again later.");
+      }
+    }
+  };
 
   return (
     <>
-      <h1 className="edit__warehouse">Edit Inventory Item</h1>
-
+      <div className="top top__addinventory">
+        <Link to="/inventory-list">
+          <img src={Arrow} alt="back arrow" />
+        </Link>
+        <h1 className="add__inventory">
+          Edit Inventory Item
+          {/* <br />
+          Item */}
+        </h1>
+      </div>
       <section className="details">
-        <form className="details__form">
+        <form className="details__form" onSubmit={handleSubmit}>
           <article className="details__container">
             <h2 className="details__subheader">Item Details</h2>
 
@@ -78,11 +205,9 @@ export function EditInventory() {
                 type="text"
                 id="item"
                 name="item"
-                placeholder="Television"
                 className="details__input"
-                // placeholder=""
-                value={formData.itemName}
-                onChange={handleChange}
+                value={inventoryData.item_name}
+                onChange={handleItemNameChange}
               ></input>
             </div>
 
@@ -94,10 +219,9 @@ export function EditInventory() {
                 type="text"
                 id="description"
                 name="description"
-                // placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
                 className="details__input"
-                value={formData.description}
-                onChange={handleChange}
+                value={inventoryData.description}
+                onChange={handleDescriptionChange}
               ></input>
             </div>
 
@@ -105,15 +229,14 @@ export function EditInventory() {
               <label htmlFor="category" className="details__label">
                 Category
               </label>
-              <input
-                type="text"
-                id="category"
+
+              <Dropdown
                 name="category"
-                // placeholder="Electronics"
-                className="details__input"
-                value={formData.category}
-                onChange={handleChange}
-              ></input>
+                placeholder="Please select"
+                onSelect={handleSelect}
+                error={errors.category}
+                options={categoryList}
+              />
             </div>
           </article>
 
@@ -123,50 +246,73 @@ export function EditInventory() {
             <h2 className="details__subheader">Item Availability</h2>
 
             <div className="details__subcontainer">
-              <label htmlFor="status" className="details__label">
-                Status
-              </label>
-              <input
-                type="radio"
-                id="in-stock"
-                name="status"
-                className="details__input"
-                value={formData.status}
-                onChange={handleChange}
-              ></input>
-              <input
-                type="radio"
-                id="out-of-stock"
-                name="status"
-                className="details__input"
-                value={formData.status}
-                onChange={handleChange}
-              ></input>
+              <article className="form__stockSection">
+                <h3 className="form__stockSection-title">Status</h3>
+                <div className="form__stockSection-wrapper">
+                  <label className="in-stock">
+                    <input
+                      name="status"
+                      type="radio"
+                      value="In Stock"
+                      checked={!showQuantityInput}
+                      onChange={() => handleRadioChange("In Stock")}
+                    />
+                    In stock
+                  </label>
+                  <label className="out-of-stock">
+                    <input
+                      name="status"
+                      type="radio"
+                      value="Out of Stock"
+                      checked={showQuantityInput}
+                      onChange={() => handleRadioChange("Out of Stock")}
+                    />
+                    Out of stock
+                  </label>
+                </div>
+              </article>
+
+              {!showQuantityInput && (
+                <>
+                  <label htmlFor="quantity">Quantity</label>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={inventoryData.quantity}
+                    onChange={handleQuantityChange}
+                    error={errors.quantity}
+                  />
+                </>
+              )}
             </div>
 
             <div className="details__subcontainer">
-              {/* <select className="">
-                {warehouses?.map((warehouse, index) => {
-                  return (
-                    <option
-                      className=""
-                      key={warehouse.id}
-                      value={warehouse.id}
-                    >
-                      {warehouse.warehouse_name}
-                    </option>
-                  );
-                })}
-              </select> */}
+              <label htmlFor="category" className="details__label">
+                Warehouse
+              </label>
+
+              <Dropdown
+                name="warehouse_id"
+                placeholder="Please select"
+                onSelect={handleSelect}
+                error={errors.warehouse_id}
+                options={warehouseList?.map(
+                  (warehouse) => warehouse.warehouse_name
+                )}
+              />
             </div>
           </article>
 
+          {/**checkout the button mixins */}
           <div className="button">
-            <button className="button__save">Save</button>
-            <button className="button__cancel">Cancel</button>
+            <Link to="/inventory-list">
+              <button className="inventory__cancel">Cancel</button>
+            </Link>
+            <button className="inventory__add">Save</button>
           </div>
         </form>
       </section>
     </>
   );
 }
+

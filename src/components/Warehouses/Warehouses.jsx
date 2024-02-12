@@ -31,7 +31,9 @@ export function Warehouses() {
         <h1>Warehouses</h1>
 
         <input></input>
-        <button></button>
+        <Link to="/warehouse-add">
+              <button className="inventorylist__add">Add New Warehouse</button>
+            </Link>
       </section>
 
       {!loading && warehouseList && warehouseList.length > 0 && (

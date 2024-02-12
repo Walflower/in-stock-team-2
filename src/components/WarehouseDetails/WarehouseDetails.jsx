@@ -46,9 +46,9 @@ export function WarehouseDetails() {
     {warehouseId  && (
     
     <main>
-      <div className="top">
-      <h1>{warehouse.warehouse_name}</h1>
-      <Link to={`/${warehouseId}/edit`}><button className="top__editbutton"><p className="top__text">Edit</p></button></Link>
+      <div className="Big">
+      <h1 className="Big">{warehouse.warehouse_name}</h1>
+      <Link to={`/${warehouseId}/edit`}><button className="Big__editbutton"><p className="Big__text">Edit</p></button></Link>
       </div>
       
         <div className="container">

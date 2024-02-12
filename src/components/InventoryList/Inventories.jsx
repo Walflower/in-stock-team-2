@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import InventoryList from "./InventoryList";
+import search from "../../assets/icons/search-24px.svg";
 
 export function Inventories() {
   const { REACT_APP_API_BASE_PATH } = process.env;
@@ -29,7 +30,7 @@ export function Inventories() {
     <>
           <div className="inventorylist__box">
             <h1 className="inventorylist__title">Iventory</h1>
-            <input></input>
+            <input className="inventorylist__input" placeholder="Search..."></input>
             <Link to="/inventory-list/add">
               <button className="inventorylist__add">Add New Item</button>
             </Link>

@@ -126,7 +126,7 @@ export const AddNewWarehouse = () => {
                         
                         <div className='button'>
                             <button className='button__cancel'>Cancel</button>
-                            <button type='submit' className='button__save'>Add Warehouse</button>
+                            <button type='submit' className='button__save'>+ Add Warehouse</button>
                         </div>
 
                 </form>

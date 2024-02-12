@@ -35,13 +35,14 @@
         
         }
 
-        .button {
-            border-radius: 50%;
-            width: 2.5rem;
-            height: 2.5rem;
-            color: $primary--indigo;
-            background-color: $primary--indigo;
-            text-decoration: none;
+        .header__button {
+            @include cta__primary--M;
+            // border-radius: 50%;
+            // width: 2.5rem;
+            // height: 2.5rem;
+            // color: $primary--indigo;
+            // background-color: $primary--indigo;
+            // text-decoration: none;
 
             &:hover {
             @include cta__primary--hover;

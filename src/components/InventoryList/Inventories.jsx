@@ -12,7 +12,7 @@ export function Inventories() {
 
   const fetchInventoryList = async () => {
     try {
-      // const res = await axios.get(`${REACT_APP_API_BASE_PATH}/inventories`);
+  
       const res = await axios.get("http://localhost:8080/inventories");
       setInventoryList(res.data);
       setLoading(false);

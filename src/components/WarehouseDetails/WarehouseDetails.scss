@@ -28,7 +28,7 @@ h1 {
   &__editbutton {
     @include cta__primary--M;
 
-    background-image: url(../../assets/icons/edit-24px.svg);
+    background-image: url(../../assets/icons/edit_white-24px.svg);
     //Image is the same color as the background TODO
     background-repeat: no-repeat;
     background-position-y: center;

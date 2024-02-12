@@ -154,7 +154,7 @@ useEffect(()=>{
       await inventoryValidationSchema.validate(inventoryData, {
         abortEarly: false,
       });
-      console.log(inventoryData); //remove
+      
 
       const response = await axios.put(
         `http://localhost:8080/inventories/${inventoryId}`,
@@ -188,8 +188,7 @@ useEffect(()=>{
         </Link>
         <h1 className="add__inventory">
           Edit Inventory Item
-          {/* <br />
-          Item */}
+          
         </h1>
       </div>
       <section className="details">
@@ -303,7 +302,6 @@ useEffect(()=>{
             </div>
           </article>
 
-          {/**checkout the button mixins */}
           <div className="button">
             <Link to="/inventory-list">
               <button className="inventory__cancel">Cancel</button>

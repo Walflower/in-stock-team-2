@@ -16,7 +16,7 @@ export function WarehouseDetails() {
 
   const fetchWarehouse = async () => {
     try {
-      // const res = await axios.get(`${REACT_APP_API_BASE_PATH}/inventories`);
+    
       const res = await axios.get(`http://localhost:8080/warehouses/${warehouseId}`);
       console.log("warehouse: ", res.data)
       setWarehouse(res.data);

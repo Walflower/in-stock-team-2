@@ -3,6 +3,7 @@
 .dropdown {
   position: relative;
   width: 100%;
+
   &__label {
     color: $primary--black;
     font-size: 12px;
@@ -20,8 +21,8 @@
     }
   }
 
-  //this is the drop down
-  // need to align text inside
+  
+
   &__input {
     @include drop__select--M;
 
@@ -30,9 +31,6 @@
     }
   }
 
-  &__selected {
-    flex: 1;
-  }
   &__placeholder {
     color: $secondary--slate;
     flex: 1;
@@ -86,9 +84,6 @@
   .dropdown__option:hover {
     background-color: #f0f0f0;
   }
-
-  //   &__error-container {
-  //   }
 
   &__error-message {
     color: $support--red;

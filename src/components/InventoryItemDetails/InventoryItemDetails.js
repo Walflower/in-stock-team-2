@@ -41,11 +41,13 @@ export const InventoryItemDetails = () => {
         <header className="header__details">
           <div className="header__container">
             <h1 className="header__name"><Link to="/inventory-list"><img className="header__icon--returnArrow" src={returnArrow} alt=""></img></Link>{inventoryDetails.item_name}</h1>
-            <Link to={`/inventory-list/${inventoryId}/edit`}><button className="header__button"><img className="header__icon" src={edit} alt="">{}</img>Edit</button></Link>
+            <Link to={`/inventory-list/${inventoryId}/edit`}><button className="header__button"><img className="header__icon" src={edit} alt="">{}</img> Edit</button></Link>
           </div>
         </header>
 
         <section className="details">
+
+        <div className="details__container2">
 
           <div className="details__container1">
             <h2 className="details__subheader">ITEM DESCRIPTION:</h2>
@@ -56,6 +58,7 @@ export const InventoryItemDetails = () => {
             <h2 className="details__subheader">CATEGORY:</h2>
               <p className="details__description">{inventoryDetails?.category}</p>
           </div>
+        </div>
 
           <div className="details__container2">
             <div className="details__container--type">
@@ -69,12 +72,12 @@ export const InventoryItemDetails = () => {
               <h2 className="details__subheader">QUANTITY:</h2>
                 <p className="details__description">{inventoryDetails?.quantity}</p>
             </div>
-          </div>
 
           <div className="details__container1">
             <h2 className="details__subheader">WAREHOUSE:</h2>
               <p className="details__description">{warehouseName}</p>
           </div>
+        </div>
 
         </section>
     </>

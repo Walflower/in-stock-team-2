@@ -18,6 +18,10 @@
     margin-left: 1rem;
     z-index: 7;
     background-color: $primary--white;
+    border-radius: 4px;
+    box-shadow: 0px 4px 10px -1px rgba(199, 195, 195, 0.57);
+    -webkit-box-shadow: 0px 4px 10px -1px rgba(199, 195, 195, 0.57);
+    -moz-box-shadow: 0px 4px 10px -1px rgba(199, 195, 195, 0.57);
 
     @include tablet {
       margin-right: $pad--24;

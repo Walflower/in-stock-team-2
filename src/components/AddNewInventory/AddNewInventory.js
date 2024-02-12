@@ -23,7 +23,6 @@ export function AddNewInventory() {
   const [showQuantityInput, setShowQuantityInput] = useState(false);
 
   const navigate = useNavigate();
-  const [showNotification, setShowNotification] = useState(false);
 
   const inventoryValidationSchema = yup.object().shape({
     warehouse_id: yup.string().required("Warehouse name is required"),

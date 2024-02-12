@@ -1,5 +1,4 @@
-// home page, houseing the warehouse list
-import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
+
 import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -12,7 +11,6 @@ export function Warehouses() {
 
   const fetchWarehouseList = async () => {
     try {
-      // const res = await axios.get(`${REACT_APP_API_BASE_PATH}/inventories`);
       const res = await axios.get("http://localhost:8080/warehouses");
       console.log(res.data);
       setWarehouseList(res.data);
@@ -51,6 +49,10 @@ export function Warehouses() {
               <p>{warehouse.contact__email}</p>
             </div>
           ))}
+
+
+
+
         </>
       )}
     </>

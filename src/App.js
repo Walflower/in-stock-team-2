@@ -12,7 +12,7 @@ import { EditInventory } from "./components/EditInventory/EditInventory";
 import { AddNewInventory } from "./components/AddNewInventory/AddNewInventory";
 import { DeleteInventoryItem } from "./components/DeleteInventoryItem/DeleteInventoryItem";
 import { InventoryItemDetails } from "./components/InventoryItemDetails/InventoryItemDetails";
-import Inventories from "./components/InventoryList/Inventories";
+import {Inventories} from "./components/InventoryList/Inventories";
 
 function App() {
   return (
@@ -32,15 +32,15 @@ function App() {
 
             <Route path="/inventory-list" element={<Inventories />} />
             <Route
-              path="/inventory-list/:iventoryId"
+              path="/inventory-list/:inventoryId"
               element={<InventoryItemDetails />}
             />
             <Route
-              path="/inventory-list/:iventoryId/delete-item"
+              path="/inventory-list/:inventoryId/delete-item"
               element={<DeleteInventoryItem />}
             />
             <Route
-              path="/inventory-list/:iventoryId/edit"
+              path="/inventory-list/:inventoryId/edit"
               element={<EditInventory />}
             />
             <Route path="/inventory-list/add" element={<AddNewInventory />} />

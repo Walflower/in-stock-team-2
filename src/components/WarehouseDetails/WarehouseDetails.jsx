@@ -1,8 +1,10 @@
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./WarehouseDetails.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import InventoryList from "../InventoryList/InventoryList";
+import returnArrow from "../../assets/icons/arrow_back-24px.svg";
 
 export function WarehouseDetails() {
   const {warehouseId} = useParams();
@@ -14,7 +16,7 @@ export function WarehouseDetails() {
 
   const fetchWarehouse = async () => {
     try {
-      // const res = await axios.get(`${REACT_APP_API_BASE_PATH}/inventories`);
+    
       const res = await axios.get(`http://localhost:8080/warehouses/${warehouseId}`);
       console.log("warehouse: ", res.data)
       setWarehouse(res.data);
@@ -45,7 +47,11 @@ export function WarehouseDetails() {
     {warehouseId  && (
     
     <main>
-      <h2> WAREHOUSE INEVENTORY LIST placeholder</h2>
+      <div className="Big">
+      <h1 className="Big"><img className="Big__icon" src={returnArrow} alt="return icon"></img> {warehouse.warehouse_name}</h1>
+      <Link to={`/${warehouseId}/edit`}><button className="Big__editbutton"><p className="Big__text">Edit</p></button></Link>
+      </div>
+      
         <div className="container">
       <section className="warehouse">
         <div className="warehouse__left info">

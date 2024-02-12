@@ -9,6 +9,55 @@ p {
   font-size: $size__p2--DT;
 }
 
+h1 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+
+  @include tablet {
+    font-size: 2 rem;
+  }
+}
+
+.Big {
+  height: 5.816rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: $secondary--cloud 1px solid;
+  padding: 1rem;
+
+  &__icon {
+    margin-right: 1rem;
+  }
+
+  &__editbutton {
+    @include cta__primary--M;
+    width: 5rem;
+    height: 2rem;
+    margin: 1rem;
+
+    background-image: url(../../assets/icons/edit_white-24px.svg);
+
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 8px;
+
+    &:hover {
+      @include cta__primary--hover;
+    }
+    @include tablet {
+      @include cta__primary--DT;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include tablet {
+      display: unset;
+    }
+  }
+}
 .container {
   color: $primary--black;
   border-top: 1px $secondary--cloud solid;

@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import "./AddNewInventory.scss";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import * as yup from "yup";
 import Dropdown from "../DropDown/DropDown";
 import Arrow from "../../assets/icons/arrow_back-24px.svg";
+import "./EditInventory.scss";
 
-export function AddNewInventory() {
+export function EditInventory() {
+
+
+const {inventoryId} = useParams();
+
   const initialState = {
     warehouse_id: "",
     item_name: "",
@@ -23,6 +27,7 @@ export function AddNewInventory() {
   const [showQuantityInput, setShowQuantityInput] = useState(false);
 
   const navigate = useNavigate();
+  const [showNotification, setShowNotification] = useState(false);
 
   const inventoryValidationSchema = yup.object().shape({
     warehouse_id: yup.string().required("Warehouse name is required"),
@@ -37,6 +42,37 @@ export function AddNewInventory() {
       .min(0, "Quantity cannot be negative"),
     status: yup.string().required("Status is required"),
   });
+
+const [inventory, setInventory] = useState(null);
+const fetchInventory = async () =>{
+  try {
+    const res = await axios.get(`http://localhost:8080/inventories/${inventoryId}`)
+    setInventory(res.data);
+    console.log("inventory item", res.data);
+  } catch (error) {
+    console.error('Error fetching inventory item', error)
+  }
+}
+useEffect(()=>{
+  fetchInventory();
+}, [inventoryId])
+
+const setInitialInventoryData = () =>{
+  if(inventory){
+  setInventoryData({
+    warehouse_id:inventory.warehouse,
+    item_name :inventory.item_name,
+    description:inventory.description,
+    category:inventory.category,
+    status:inventory.status,
+    quantity: inventory.quantity,
+  })
+  }
+} 
+useEffect(()=>{
+  setInitialInventoryData();
+}, [inventory])
+ 
 
   const getDropDown = async () => {
     try {
@@ -85,13 +121,14 @@ export function AddNewInventory() {
 
     setErrors({ ...errors, status: "" });
   };
-
+  //
   const handleQuantityChange = (e) => {
     const { value } = e.target;
     setInventoryData({ ...inventoryData, quantity: value });
     setErrors({ ...errors, quantity: "" });
   };
 
+  //
   const handleSelect = (name, option) => {
     let selectedOption = option;
 
@@ -113,12 +150,14 @@ export function AddNewInventory() {
         inventoryData.quantity = parseInt(inventoryData.quantity);
       }
 
+      // Validate the form data
       await inventoryValidationSchema.validate(inventoryData, {
         abortEarly: false,
       });
+      
 
-      const response = await axios.post(
-        `http://localhost:8080/inventories`,
+      const response = await axios.put(
+        `http://localhost:8080/inventories/${inventoryId}`,
         inventoryData
       );
 
@@ -143,62 +182,50 @@ export function AddNewInventory() {
 
   return (
     <>
-      <section className="section__top">
-        <div className="top">
-          <Link to="/inventory-list">
-            <img className="top__arrow" src={Arrow} alt="back arrow" />
-          </Link>
-          <h1 className="top__title">
-            Add New Inventory
-            <br />
-            <span class="spaced-word">Item</span>
-          </h1>
-        </div>
-      </section>
+      <div className="top top__addinventory">
+        <Link to="/inventory-list">
+          <img src={Arrow} alt="back arrow" />
+        </Link>
+        <h1 className="add__inventory">
+          Edit Inventory Item
+          
+        </h1>
+      </div>
+      <section className="details">
+        <form className="details__form" onSubmit={handleSubmit}>
+          <article className="details__container">
+            <h2 className="details__subheader">Item Details</h2>
 
-      <form onSubmit={handleSubmit}>
-        <section className="form">
-          <article className="form__container form__container--left">
-            <h2 className="form__subheader">Item Details</h2>
-
-            <div className="form__subcontainer">
-              <label htmlFor="item" className="form__label">
+            <div className="details__subcontainer">
+              <label htmlFor="item" className="details__label">
                 Item Name
               </label>
               <input
                 type="text"
                 id="item"
                 name="item"
-                placeholder="Item Name"
-                className="form__input"
+                className="details__input"
                 value={inventoryData.item_name}
                 onChange={handleItemNameChange}
               ></input>
-              {errors.item_name && (
-                <p className="dropdown__error-message">{errors.item_name}</p>
-              )}
             </div>
 
-            <div className="form__subcontainer">
-              <label htmlFor="description" className="form__label">
+            <div className="details__subcontainer">
+              <label htmlFor="description" className="details__label">
                 Description
               </label>
-              <textarea
+              <input
                 type="text"
                 id="description"
                 name="description"
-                placeholder="Please enter a brief item description"
-                className="form__input form__input--description"
+                className="details__input"
                 value={inventoryData.description}
                 onChange={handleDescriptionChange}
-              ></textarea>
-              {errors.item_name && (
-                <p className="dropdown__error-message">{errors.description}</p>
-              )}
+              ></input>
             </div>
 
-            <div className="form__subcontainer">
-              <label htmlFor="category" className="form__label">
+            <div className="details__subcontainer">
+              <label htmlFor="category" className="details__label">
                 Category
               </label>
 
@@ -214,64 +241,52 @@ export function AddNewInventory() {
 
           <div className="divider"></div>
 
-          <article className="form__container">
-            <h2 className="form__subheader">Item Availability</h2>
+          <article className="details__container">
+            <h2 className="details__subheader">Item Availability</h2>
 
-            <div className="form__subcontainer">
-              <label className="form__label">Status</label>
+            <div className="details__subcontainer">
+              <article className="form__stockSection">
+                <h3 className="form__stockSection-title">Status</h3>
+                <div className="form__stockSection-wrapper">
+                  <label className="in-stock">
+                    <input
+                      name="status"
+                      type="radio"
+                      value="In Stock"
+                      checked={!showQuantityInput}
+                      onChange={() => handleRadioChange("In Stock")}
+                    />
+                    In stock
+                  </label>
+                  <label className="out-of-stock">
+                    <input
+                      name="status"
+                      type="radio"
+                      value="Out of Stock"
+                      checked={showQuantityInput}
+                      onChange={() => handleRadioChange("Out of Stock")}
+                    />
+                    Out of stock
+                  </label>
+                </div>
+              </article>
 
-              <section className="radios">
-                <label className="radios__label radios__label--start">
-                  <input
-                    className="radios__button"
-                    name="status"
-                    type="radio"
-                    value="In Stock"
-                    checked={!showQuantityInput}
-                    onChange={() => handleRadioChange("In Stock")}
-                  />
-                  In stock
-                </label>
-
-                <label className="radios__label">
-                  <input
-                    className="radios__button"
-                    name="status"
-                    type="radio"
-                    value="Out of Stock"
-                    checked={showQuantityInput}
-                    onChange={() => handleRadioChange("Out of Stock")}
-                  />
-                  Out of stock
-                </label>
-                {errors.item_name && (
-                  <p className="dropdown__error-message">{errors.status}</p>
-                )}
-              </section>
-            </div>
-
-            <div className="form__subcontainer">
               {!showQuantityInput && (
                 <>
-                  <label htmlFor="form__label">Quantity</label>
+                  <label htmlFor="quantity">Quantity</label>
                   <input
                     type="number"
-                    placeholder="Quantity"
                     name="quantity"
                     value={inventoryData.quantity}
                     onChange={handleQuantityChange}
                     error={errors.quantity}
-                    className="form__input"
                   />
                 </>
               )}
-              {errors.item_name && (
-                <p className="dropdown__error-message">{errors.quantity}</p>
-              )}
             </div>
 
-            <div className="form__subcontainer">
-              <label htmlFor="warehouse_id" className="form__label">
+            <div className="details__subcontainer">
+              <label htmlFor="category" className="details__label">
                 Warehouse
               </label>
 
@@ -286,15 +301,16 @@ export function AddNewInventory() {
               />
             </div>
           </article>
-        </section>
 
-        <div className="buttons">
-          <Link to="/inventory-list">
-            <button className="inventory__cancel">Cancel</button>
-          </Link>
-          <button className="inventory__add">Add Item</button>
-        </div>
-      </form>
+          <div className="button">
+            <Link to="/inventory-list">
+              <button className="inventory__cancel">Cancel</button>
+            </Link>
+            <button className="inventory__add">Save</button>
+          </div>
+        </form>
+      </section>
     </>
   );
 }
+

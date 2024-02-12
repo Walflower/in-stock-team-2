@@ -1,0 +1,154 @@
+@use "../../styles/partials/index" as *;
+
+.section__top {
+  width: 100%;
+  border-bottom: 1px solid $secondary--cloud;
+  height: 7rem;
+
+  @include tablet {
+    height: 5.7rem;
+  }
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: $pad--24;
+  padding-left: $pad--16;
+
+  @include tablet {
+    padding: $pad--32;
+    height: 100%;
+  }
+
+  &__arrow {
+    margin-right: $pad--16;
+    margin-bottom: $pad--32;
+
+    @include tablet {
+      margin-bottom: unset;
+    }
+  }
+
+  &__title {
+    font-size: $size__h1--M;
+
+    @include tablet {
+      font-size: $size__h1--DT;
+      line-height: $lheight__h1--DT;
+    }
+  }
+}
+
+br {
+  @include tablet {
+    display: none;
+  }
+}
+.spaced-word {
+  margin-left: 0.25em;
+}
+
+.form {
+  @include tablet {
+    display: flex;
+  }
+
+  &__container {
+    @include tablet {
+      margin-top: $pad--16;
+      margin-bottom: $pad--16;
+      width: 50%;
+    }
+    &--left {
+      border-right: 1px solid $secondary--cloud;
+    }
+  }
+  &__subheader {
+    padding-left: $pad--16;
+    padding-top: $pad--16;
+
+    @include tablet {
+      padding-left: $pad--32;
+      padding-top: unset;
+    }
+  }
+
+  &__subcontainer {
+    padding: $pad--16 $pad--16;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding: $pad--16 $pad--32;
+    }
+  }
+
+  &__label {
+    @include fieldtext__label--M;
+    padding-bottom: 0.25rem;
+  }
+
+  &__input {
+    @include field__text--M;
+
+    &:invalid {
+      @include field__error;
+    }
+
+    &--description {
+      height: 150px;
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+  border-bottom: 1px solid $secondary--cloud;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.radios {
+  &__label {
+    &--start {
+      margin-right: $pad--80;
+    }
+  }
+
+  &__button {
+    @include radio__btn;
+  }
+}
+
+.buttons {
+  padding: $pad--16 $pad--16;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $background--lightgrey;
+
+  @include tablet {
+    justify-content: flex-end;
+  }
+}
+
+.inventory__cancel {
+  @include cta__secondary--DT;
+  padding: 0 2.5rem;
+
+  @include tablet {
+    padding: 0 1rem;
+  }
+}
+
+.inventory__add {
+  @include cta__primary--DT;
+  padding: 0 2.5rem;
+  @include tablet {
+    padding: 0 1rem;
+    margin-left: 1.5rem;
+  }
+}

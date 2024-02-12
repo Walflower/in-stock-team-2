@@ -31,6 +31,7 @@ p {
   @include tablet {
     padding-left: 0;
     padding-right: 0;
+    padding-top: 0;
   }
 }
 
@@ -104,6 +105,7 @@ p {
     display: flex;
     flex-direction: row;
     gap: $pad--64;
+
     &-tablet {
       @include tablet {
         display: flex;
@@ -154,18 +156,16 @@ p {
           width: 55%;
         }
       }
-      
     }
-    &-tag-out{
-
-        @include tag__out--M;
-        &-tablet {
-          @include tablet {
-            @include tag__in--DT;
-            width: 55%;
-          }
+    &-tag-out {
+      @include tag__out--M;
+      &-tablet {
+        @include tablet {
+          @include tag__in--DT;
+          width: 55%;
+        }
+      }
     }
-  }
     &-content {
       display: flex;
       flex-direction: column;

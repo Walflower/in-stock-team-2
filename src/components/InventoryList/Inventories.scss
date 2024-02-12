@@ -1,0 +1,36 @@
+@use "../../styles/partials/index" as *;
+
+.inventorylist__box {
+  padding: 2rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  @include tablet {
+    flex-direction: row;
+    height: 5.75em;
+    align-items: center;
+  }
+}
+.inventorylist__add {
+  @include cta__primary--DT;
+  width: 100%;
+
+  @include tablet {
+    width: unset;
+  }
+}
+
+.inventorylist__input {
+  background-image: url("../../assets//icons//search-24px.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 100%;
+  @include tablet {
+    width: 25%;
+  }
+  @include desktop {
+    
+  }
+}

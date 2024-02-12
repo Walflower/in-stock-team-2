@@ -4,6 +4,7 @@ import "./WarehouseDetails.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import InventoryList from "../InventoryList/InventoryList";
+import returnArrow from "../../assets/icons/arrow_back-24px.svg";
 
 export function WarehouseDetails() {
   const {warehouseId} = useParams();
@@ -47,7 +48,7 @@ export function WarehouseDetails() {
     
     <main>
       <div className="Big">
-      <h1 className="Big">{warehouse.warehouse_name}</h1>
+      <h1 className="Big"><img className="Big__icon" src={returnArrow} alt="return icon"></img> {warehouse.warehouse_name}</h1>
       <Link to={`/${warehouseId}/edit`}><button className="Big__editbutton"><p className="Big__text">Edit</p></button></Link>
       </div>
       

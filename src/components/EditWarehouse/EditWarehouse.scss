@@ -60,6 +60,13 @@ input {
                 margin: 1rem 0;
                 width: 100%;
 
+                @include tablet {
+                   border-right: 0.1rem solid $secondary--cloud;
+                }
+                @include desktop {
+                    border-right: 0.1rem solid $secondary--cloud;
+                }
+                
                 .details__subheader {
                     font-size: $size__h2--M;
                     color: $primary--black;

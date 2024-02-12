@@ -1,3 +1,30 @@
 @use "../../styles/partials/index" as *;
 
+.warehouses__header--landing {
+    padding: 1rem;
+}
 
+.warehouses__input {
+    width: 100%;
+    padding: 1rem;
+    background-image: url("../../assets//icons//search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+
+        @include tablet {
+            width: 25%;
+        }
+}
+
+.warehouses__container--landing {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+}
+
+.warehouses__subcontainer--landing {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
